@@ -1,0 +1,27 @@
+@import '../../stylesheets/fonts';
+
+nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-list {
+  font-size: $display1-size;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 992px) {
+  .nav-list .split-text {
+    font-size: $display4-size;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../../stylesheets/colors";
+
+.timer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  &__time {
+    display: flex;
+    align-items: center;
+    color: $white;
+    width: 40px;
+    opacity: .5;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin: 10px;
+    filter: invert(1);
+    opacity: .5;
+  }
+}

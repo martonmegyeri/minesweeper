@@ -1,0 +1,1 @@
+export const SET_GAME_OPTIONS = 'SET_GAME_OPTIONS';

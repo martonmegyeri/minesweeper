@@ -1,0 +1,98 @@
+@import '../../../stylesheets/colors';
+@import '../../../stylesheets/fonts';
+
+$perspective: 60rem;
+$split-position: 49%;
+$split-thickness: 4px;
+$split-color-light: $primary;
+$split-color-light-secondary: $white;
+$split-color-dark: $background;
+$split-color-dark-secondary: $accent;
+
+.split-text {
+  position: relative;
+  color: transparent;
+  cursor: pointer;
+  margin: 5px 0;
+  font-weight: 900;
+  font-size: $display2-size;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  &.split-text--small {
+    font-size: $h2-font-size;
+  }
+
+  &.split-text--large {
+    font-size: $display1-size;
+  }
+
+  &.split-text--dark {
+    .mask {
+      color: $split-color-dark;
+    }
+
+    &::before {
+      background: $split-color-dark;
+    }
+
+    &:hover,
+    &:active {
+      .mask {
+        color: $split-color-dark-secondary;
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: $split-position;
+    left: -10%;
+    right: -10%;
+    height: $split-thickness;
+    margin-top: -($split-thickness / 2);
+    background: $split-color-light;
+    transform: scale(0);
+    transition: transform .8s cubic-bezier(.16,1.08,.38,.98);
+    z-index: 1;
+  }
+
+  &:hover,
+  &:active {
+    .mask {
+      color: $split-color-light-secondary;
+      transform: skewX(12deg) translateX(5px);
+    }
+    .mask + .mask {
+      transform: skewX(12deg) translateX(-5px);
+    }
+    &::before {
+      transform: scale(1);
+    }
+  }
+
+  .mask {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    color: $split-color-light;
+    top: 0;
+    height: $split-position;
+    transition: all .8s cubic-bezier(.16,1.08,.38,.98);
+
+    span {
+      display: block;
+    }
+  }
+
+  .mask + .mask {
+    top: $split-position - 0.1;
+    height: 100 - $split-position + 0.1;
+
+    span {
+      transform: translateY(-$split-position);
+    }
+  }
+}

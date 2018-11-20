@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './PerspectiveContainer.scss';
 
@@ -9,7 +10,8 @@ class PerspectiveContainer extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]).isRequired
+    ]).isRequired,
+    mode3D: PropTypes.bool.isRequired
   };
 
   state = {
@@ -23,15 +25,17 @@ class PerspectiveContainer extends Component {
   };
 
   componentDidMount() {
-    const innerElement = this.inner.current;
-    var viewportOffset = innerElement.getBoundingClientRect();
-    var top = viewportOffset.top;
-    var left = viewportOffset.left;
+    if (this.props.mode3D) {
+      const innerElement = this.inner.current;
+      var viewportOffset = innerElement.getBoundingClientRect();
+      var top = viewportOffset.top;
+      var left = viewportOffset.left;
 
-    this.setState({
-      originX: left + Math.floor(innerElement.offsetWidth / 2),
-      originY: top + Math.floor(innerElement.offsetHeight / 2)
-    });
+      this.setState({
+        originX: left + Math.floor(innerElement.offsetWidth / 2),
+        originY: top + Math.floor(innerElement.offsetHeight / 2)
+      });
+    }
   }
 
   inner = React.createRef();
@@ -96,24 +100,34 @@ class PerspectiveContainer extends Component {
   };
 
   render() {
-    return (
-      <div
-        className="perspective-container"
-        onMouseEnter={this.onMouseEnterHandler}
-        onMouseLeave={this.onMouseLeaveHandler}
-        onMouseMove={this.onMouseMoveHandler}
-      >
+    if (this.props.mode3D) {
+      return (
         <div
-          className="perspective-container-inner"
-          style={this.state.style}
-          ref={this.inner}
+          className="perspective-container"
+          onMouseEnter={this.onMouseEnterHandler}
+          onMouseLeave={this.onMouseLeaveHandler}
+          onMouseMove={this.onMouseMoveHandler}
         >
-          {this.props.children}
+          <div
+            className="perspective-container-inner"
+            style={this.state.style}
+            ref={this.inner}
+          >
+            {this.props.children}
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        this.props.children
+      );
+    }
   }
 }
 
 
-export default PerspectiveContainer;
+const mapStateToProps = (state) => ({
+  mode3D: state.layout.mode3D
+});
+
+export default connect(mapStateToProps, null)(PerspectiveContainer);

@@ -10,7 +10,11 @@
     align-items: center;
     color: $white;
     width: 40px;
-    opacity: .5;
+    opacity: 0.5;
+
+    .theme-light & {
+      color: $black;
+    }
   }
 
   img {
@@ -19,6 +23,10 @@
     object-fit: contain;
     margin: 10px;
     filter: invert(1);
-    opacity: .5;
+    opacity: 0.5;
+
+    .theme-light & {
+      filter: invert(0);
+    }
   }
 }

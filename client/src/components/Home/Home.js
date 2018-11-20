@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './Home.scss';
 import SplitText from '../common/SplitText/SplitText';
@@ -8,6 +10,10 @@ import LevelsModal from './LevelsModal/LevelsModal';
 
 
 class Home extends Component {
+  static propTypes = {
+    theme: PropTypes.string.isRequired
+  }
+
   state = {
     playModal: false,
     levelsModal: false
@@ -31,10 +37,10 @@ class Home extends Component {
           <nav>
             <ul className="nav-list">
               <div onClick={this.playClickHandler}>
-                <SplitText size="large">Play</SplitText>
+                <SplitText size="large" color={this.props.theme === 'light' ? 'dark' : ''}>Play</SplitText>
               </div>
               <Link to="/about">
-                <SplitText size="large">About</SplitText>
+                <SplitText size="large" color={this.props.theme === 'light' ? 'dark' : ''}>About</SplitText>
               </Link>
             </ul>
           </nav>
@@ -55,4 +61,8 @@ class Home extends Component {
 }
 
 
-export default Home;
+const mapStateToProps = (state) => ({
+  theme: state.layout.theme
+});
+
+export default connect(mapStateToProps, null)(Home);

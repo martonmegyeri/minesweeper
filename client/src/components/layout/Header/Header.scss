@@ -1,0 +1,70 @@
+@import '../../../stylesheets/colors';
+@import '../../../stylesheets/fonts';
+
+$nav-height: 50px;
+
+header {
+  height: $nav-height;
+  width: 100%;
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+
+    .nav-item {
+      width: $nav-height;
+      height: $nav-height;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 150ms ease-in-out;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        i {
+          opacity: 0.75;
+        }
+
+        &::after {
+          opacity: 0.15;
+          transform: scale(1);
+        }
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $white;
+        opacity: 0;
+        transform: scale(0.5);
+        transition: 150ms ease-in-out;
+
+        .theme-light & {
+          background-color: $black;
+        }
+      }
+
+      i {
+        font-size: $h2-font-size;
+        color: $white;
+        user-select: none;
+        opacity: 0.5;
+        transition: 150ms ease-in-out;
+
+        .theme-light & {
+          color: $black;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import "../../../stylesheets/colors";
+
+.input-switch {
+  input {
+    display: none;
+
+    &:checked + .input-switch-label {
+      &::before {
+        background-color: lighten($accent, 25%);
+      }
+
+      &::after {
+        background-color: $accent;
+        transform: translate(80%, -50%);
+      }
+    }
+  }
+
+  .input-switch-label {
+    position: relative;
+    display: inline-block;
+    min-width: 112px;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 44px;
+    user-select: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      margin: 0;
+      outline: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      left: 1px;
+      width: 34px;
+      height: 14px;
+      background-color: #9E9E9E;
+      border-radius: 8px;
+    }
+
+    &::after {
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: $gray-200;
+      border-radius: 50%;
+      box-shadow: 0 0 5px  rgba(0, 0, 0, 0.25), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.085);
+    }
+  }
+}

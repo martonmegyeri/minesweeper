@@ -1,8 +1,10 @@
-@import 'colors';
-@import 'fonts';
-@import 'button';
+@import "colors";
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,900');
+@import "fonts";
+
+@import "button";
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,900");
 
 html,
 body {
@@ -11,7 +13,9 @@ body {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -20,18 +24,31 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $background;
+  background-color: $background--dark;
   font-size: $font-size-base;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  background: linear-gradient(45deg, ($background-dark, $background));
+  background: linear-gradient(45deg, ($background-darker--dark, $background--dark));
   background-size: 200% 100%;
   animation: background 5s ease-in-out infinite;
+  transition: 250ms ease-in-out;
+
+  .theme-light & {
+    background: linear-gradient(45deg, ($background-darker--light, $background--light));
+  }
 }
 
 @keyframes background {
-  0% { background-position: 0% 50% }
-  50% { background-position: 100% 50% }
-  100% { background-position: 0% 50% }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .content,

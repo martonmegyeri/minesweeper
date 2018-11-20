@@ -1,12 +1,13 @@
-@import '../../../stylesheets/colors';
-@import '../../../stylesheets/fonts';
+@import "../../../stylesheets/colors";
+
+@import "../../../stylesheets/fonts";
 
 $perspective: 60rem;
 $split-position: 49%;
 $split-thickness: 4px;
 $split-color-light: $primary;
 $split-color-light-secondary: $white;
-$split-color-dark: $background;
+$split-color-dark: $background--dark;
 $split-color-dark-secondary: $accent;
 
 .split-text {
@@ -45,7 +46,7 @@ $split-color-dark-secondary: $accent;
   }
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: $split-position;
@@ -55,7 +56,7 @@ $split-color-dark-secondary: $accent;
     margin-top: -($split-thickness / 2);
     background: $split-color-light;
     transform: scale(0);
-    transition: transform .8s cubic-bezier(.16,1.08,.38,.98);
+    transition: transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
     z-index: 1;
   }
 
@@ -65,9 +66,11 @@ $split-color-dark-secondary: $accent;
       color: $split-color-light-secondary;
       transform: skewX(12deg) translateX(5px);
     }
+
     .mask + .mask {
       transform: skewX(12deg) translateX(-5px);
     }
+
     &::before {
       transform: scale(1);
     }
@@ -80,7 +83,8 @@ $split-color-dark-secondary: $accent;
     color: $split-color-light;
     top: 0;
     height: $split-position;
-    transition: all .8s cubic-bezier(.16,1.08,.38,.98);
+    user-select: none;
+    transition: all 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
 
     span {
       display: block;

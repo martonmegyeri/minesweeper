@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Timer.scss';
 import clock from '../../../assets/images/clock.svg';
 
-export default function Timer({ time }) {
+const Timer = ({ time }) => {
   const minutes = Math.floor(time / 60);
   const seconds = time - (minutes * 60);
   const formattedTime = `${minutes}:${seconds > 9 ? seconds : '0' + seconds}`;
@@ -20,3 +20,6 @@ export default function Timer({ time }) {
 Timer.propTypes = {
   time: PropTypes.number.isRequired
 };
+
+
+export default Timer;

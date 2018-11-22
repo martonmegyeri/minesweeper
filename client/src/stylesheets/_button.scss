@@ -17,7 +17,7 @@ button {
   margin: 10px 0;
   border: none;
   font-size: 15px;
-  color: $white;
+  color: white;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
@@ -37,7 +37,7 @@ button {
   bottom: 0;
   opacity: 0;
   border-radius: 4px;
-  background-color: rgba($white, 0.1);
+  background-color: rgba(white, 0.1);
   transition: 150ms ease-out;
 }
 

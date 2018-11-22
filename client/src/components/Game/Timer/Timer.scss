@@ -8,12 +8,12 @@
   &__time {
     display: flex;
     align-items: center;
-    color: $white;
+    color: white;
     width: 40px;
     opacity: 0.5;
 
     .theme-light & {
-      color: $black;
+      color: black;
     }
   }
 

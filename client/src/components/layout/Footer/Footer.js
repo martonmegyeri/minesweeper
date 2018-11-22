@@ -6,10 +6,14 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer>
-      Created by Marton Megyeri
+      Created by
+      {' '}
+      <a href="https://github.com/megyerimarton" target="_blank" rel="noopener noreferrer">
+        Marton Megyeri
+      </a>
     </footer>
   )
 };
 
 
-export default Footer
+export default Footer;

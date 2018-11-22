@@ -3,9 +3,9 @@
 .board {
 
   &__inner {
-    background-color: rgba($white, .35);
+    background-color: rgba(white, .35);
     padding: 2px 3px;
-    box-shadow: 0 0 250px rgba($white, .2);
+    box-shadow: 0 0 250px rgba(white, .2);
 
     &.shake-1 {
       animation: 500ms shake-1 ease-in-out;

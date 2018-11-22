@@ -8,6 +8,7 @@ import Footer from './components/layout/Footer/Footer';
 import Settings from './components/common/Settings/Settings';
 import Toast from './components/common/Toast/ToastContainer';
 import Home from './components/Home/Home';
+import About from './components/About/About';
 import Game from './components/Game/Game';
 
 
@@ -36,6 +37,7 @@ class App extends Component {
 
             <Switch>
               <Route path="/game/:level" component={Game} />
+              <Route path="/about" component={About} />
               <Route path="*" component={Home} />
             </Switch>
 

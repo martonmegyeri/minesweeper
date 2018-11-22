@@ -1,7 +1,6 @@
 @import "../../../../../stylesheets/colors";
 
 .board__row:nth-child(odd) {
-
   .board__item {
     background-color: $brown;
 
@@ -42,12 +41,12 @@
   }
 
   &:hover {
-    opacity: .75;
+    opacity: 0.75;
     transform: scale(1.1);
   }
 
   &:active {
-    transform: scale(.9);
+    transform: scale(0.9);
   }
 
   &::before {
@@ -62,7 +61,6 @@
   }
 
   &--flagged {
-
     &::before {
       background-image: url("/images/flag.svg");
       background-size: 90% 90%;
@@ -71,7 +69,6 @@
   }
 
   &--revealed {
-
     &::before {
       opacity: 0;
     }
@@ -117,10 +114,24 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: rgba($black, .35);
+      background-color: $black;
+      opacity: 0.35;
       transform: translate(-50%, -50%);
+      animation: mine-pulse 2s linear infinite;
+    }
+
+    @keyframes mine-pulse {
+      0% {
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 0.2;
+      }
+
     }
   }
+
 
   &--color-green {
     color: $green;
@@ -134,3 +145,4 @@
     color: $red;
   }
 }
+

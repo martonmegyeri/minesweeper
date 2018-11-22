@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './Game.scss';
+import { showMessage } from '../../actions/layoutActions';
 import Timer from './Timer/Timer';
 import Board from './Board/Board';
 import GameOverButton from './GameOverButton/GameOverButton';
-import Confetties from './Confetties';
+import Confetties from './Confetties/Confetties';
 
 
 class Game extends Component {
@@ -32,6 +34,7 @@ class Game extends Component {
 
   setWin = () => {
     this.setState({ win: true });
+    this.props.showMessage(`Congratulation, you won!`);
   }
 
   setGameOver = () => {
@@ -64,4 +67,4 @@ class Game extends Component {
 }
 
 
-export default Game;
+export default connect(null, { showMessage })(Game);

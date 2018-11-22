@@ -19,6 +19,7 @@ $split-color-dark-secondary: $accent;
   font-size: $display2-size;
   line-height: 1.2;
   text-transform: uppercase;
+  user-select: none;
 
   &.split-text--small {
     font-size: $h2-font-size;

@@ -1,5 +1,20 @@
-import { SET_THEME, SET_3D } from './types';
+import { SHOW_MESSAGE, HIDE_MESSAGE, SET_THEME, SET_3D } from './types';
 
+
+export const showMessage = (text) => ({
+  type: SHOW_MESSAGE,
+  payload: {
+    visible: true,
+    text
+  }
+});
+
+export const hideMessage = () => ({
+  type: HIDE_MESSAGE,
+  payload: {
+    visible: false
+  }
+});
 
 export const setTheme = (theme) => {
   const classList = [];

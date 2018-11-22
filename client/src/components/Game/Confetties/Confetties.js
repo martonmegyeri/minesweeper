@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Confetties.scss';
 
 
-class ConfettiesContainer extends Component {
+class Confetties extends Component {
   static defaultProps = {
     number: 250
   };
@@ -18,7 +18,7 @@ class ConfettiesContainer extends Component {
 
     for (let i = 0; i < this.props.number; i++) {
       confetties.push(
-        <div className={`confetti confetti-${i}`}></div>
+        <div className={`confetti confetti-${i}`} key={i}></div>
       );
     }
 
@@ -34,4 +34,4 @@ class ConfettiesContainer extends Component {
   }
 }
 
-export default ConfettiesContainer;
+export default Confetties;

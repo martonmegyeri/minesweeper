@@ -5,14 +5,16 @@ import store from './store';
 
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
-import Settings from './components/general/Settings/Settings';
+import Settings from './components/common/Settings/Settings';
+import Toast from './components/common/Toast/ToastContainer';
 import Home from './components/Home/Home';
 import Game from './components/Game/Game';
 
 
 class App extends Component {
   state = {
-    showSettings: false
+    showSettings: false,
+    showLogin: false
   }
 
   settingsClickHandler = () => {
@@ -24,8 +26,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Header settingsClickHandler={this.settingsClickHandler} />
+            <Header
+              settingsClickHandler={this.settingsClickHandler}
+              loginClickHandler={this.loginClickHandler}
+            />
 
+            <Toast />
             <Settings show={this.state.showSettings} showHandler={this.settingsClickHandler} />
 
             <Switch>

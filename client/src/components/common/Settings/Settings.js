@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import './Settings.scss';
-import { setTheme, set3D } from '../../../actions/layoutActions';
+import { showMessage, setTheme, set3D } from '../../../actions/layoutActions';
 import Modal from '../../common/Modal/Modal';
 import InputSwitch from '../../common/InputSwitch/InputSwitch';
 
@@ -22,11 +22,15 @@ class Settings extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { darkTheme, mode3D } = this.state;
 
-    if (prevState.darkTheme !== darkTheme)
+    if (prevState.darkTheme !== darkTheme) {
       this.props.setTheme(darkTheme ? 'dark' : 'light');
+      this.props.showMessage(`Dark mode ${darkTheme ? 'on' : 'off'}`);
+    }
 
-    if (prevState.mode3D !== mode3D)
+    if (prevState.mode3D !== mode3D) {
       this.props.set3D(mode3D);
+      this.props.showMessage(`3D Effect ${mode3D ? 'on' : 'off'}`);
+    }
   }
 
   checkHandler = (e) => {
@@ -67,4 +71,4 @@ const mapStateToProps = (state) => ({
   mode3D: state.layout.mode3D
 });
 
-export default connect(mapStateToProps, { setTheme, set3D })(Settings);
+export default connect(mapStateToProps, { showMessage, setTheme, set3D })(Settings);

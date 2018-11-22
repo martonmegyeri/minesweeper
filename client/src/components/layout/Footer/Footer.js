@@ -3,10 +3,13 @@ import React from 'react';
 import './Footer.scss';
 
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer>
       Created by Marton Megyeri
     </footer>
   )
 };
+
+
+export default Footer

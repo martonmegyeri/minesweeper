@@ -1,0 +1,24 @@
+@use "../../../styles/mixins.scss";
+
+.playModal {
+  .modalBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .list {
+    @include mixins.reset-list;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 0;
+
+      > * {
+        width: 100%;
+      }
+    }
+  }
+}

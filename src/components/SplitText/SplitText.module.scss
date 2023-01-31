@@ -1,0 +1,93 @@
+@use "sass:math";
+
+.splitText {
+  --split-position: 50%;
+  --split-thickness: 4px;
+
+  position: relative;
+  color: transparent;
+  cursor: pointer;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  user-select: none;
+
+  &.small {
+    font-size: 30px;
+  }
+
+  &.dark {
+    .mask {
+      color: var(--color-neutral-700);
+    }
+
+    &::before {
+      background: var(--color-neutral-700);
+    }
+
+    &:hover,
+    &:active {
+      .mask {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: var(--split-position);
+    left: -10%;
+    right: -10%;
+    height: var(--split-thickness);
+    margin-top: calc((var(--split-thickness) / 2) * -1);
+    background: var(--color-primary);
+    transform: scale(0);
+    transition: var(--transition-primary);
+    z-index: 1;
+  }
+
+  &:hover,
+  &:active {
+    .mask {
+      color: var(--color-text);
+      transform: skewX(12deg) translateX(5px);
+    }
+
+    .mask + .mask {
+      transform: skewX(12deg) translateX(-5px);
+    }
+
+    &::before {
+      transform: scale(1);
+    }
+  }
+
+  .mask {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    color: var(--color-primary);
+    height: var(--split-position);
+    user-select: none;
+    transition: var(--transition-primary);
+
+    span {
+      display: block;
+    }
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: var(--split-position);
+      height: calc(100% - var(--split-position));
+
+      span {
+        transform: translateY(calc(var(--split-position) * -1));
+      }
+    }
+  }
+}

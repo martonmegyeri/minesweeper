@@ -1,0 +1,13 @@
+.perspectiveContainer {
+  perspective: 40px;
+
+  &.hovering {
+    .inner {
+      transition: 250ms ease-out;
+    }
+  }
+
+  .inner {
+    transition: 500ms ease-out;
+  }
+}

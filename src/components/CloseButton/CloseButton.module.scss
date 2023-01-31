@@ -1,0 +1,35 @@
+.closeButton {
+  --shape-border-width: 3px;
+  --bottom-border-height: 3px;
+
+  &::before,
+  .content,
+  .content::before {
+    border-radius: 50%;
+  }
+
+  .content,
+  .content::before {
+    border-width: var(--shape-border-width);
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0 !important;
+
+    &::before {
+      left: -var(--shape-border-width);
+      width: calc(100% + var(--shape-border-width) * 2);
+      height: calc(100% + var(--shape-border-width) * 2);
+    }
+  }
+
+  .closeMark {
+    margin-bottom: 5px;
+    font-size: 36px;
+  }
+}

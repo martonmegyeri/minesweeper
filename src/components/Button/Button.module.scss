@@ -1,0 +1,111 @@
+@use "../../styles/mixins.scss";
+
+.button {
+  --border-radius: 14px;
+  --bottom-border-height: 8px;
+
+  @include mixins.reset-button;
+  position: relative;
+  padding-top: var(--bottom-border-height);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+
+  &:not(:disabled):active {
+    .content {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &:not(:disabled):hover {
+    .content {
+      &::before {
+        opacity: 0.15;
+        transform: scale3d(0.85, 0.75, 1);
+      }
+    }
+  }
+
+  &:disabled {
+    filter: saturate(0.5);
+    cursor: not-allowed;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--bottom-border-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--btn-color-dark);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px var(--btn-color-shadow);
+  }
+
+  &.orange {
+    --btn-color: hsl(40, 100%, 50%);
+    --btn-color-light: hsl(40, 100%, 60%);
+    --btn-color-dark: hsl(15, 90%, 50%);
+    --btn-color-shadow: hsla(15, 90%, 20%, 40%);
+  }
+
+  &.green {
+    --btn-color: hsl(95, 60%, 48%);
+    --btn-color-light: hsl(95, 75%, 50%);
+    --btn-color-dark: hsl(95, 70%, 38%);
+    --btn-color-shadow: hsla(95, 70%, 20%, 40%);
+  }
+
+  &.red {
+    --btn-color: hsl(10, 100%, 50%);
+    --btn-color-light: hsl(10, 100%, 60%);
+    --btn-color-dark: hsl(0, 80%, 40%);
+    --btn-color-shadow: hsla(0, 80%, 20%, 40%);
+  }
+
+  &.normal {
+    .content {
+      padding: 12px 36px;
+      font-size: 26px;
+    }
+  }
+
+  &.small {
+    .content {
+      padding: 10px 30px;
+      font-size: 22px;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    background-color: var(--btn-color);
+    font-size: 26px;
+    color: var(--color-white);
+    text-shadow: 0 1.5px var(--btn-color-dark), 0 -1.5px var(--btn-color-dark), 1.5px 0 var(--btn-color-dark),
+      -1.5px 0 var(--btn-color-dark), 0 3px 3px var(--btn-color-dark);
+    transform: translate3d(0, calc(-1 * var(--bottom-border-height)), 0);
+    transition: var(--transition-fast);
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 5%), inset 0 3px 10px hsla(0, 0%, 100%, 50%);
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background-color: white;
+      border-radius: 50%;
+      filter: blur(10px);
+      opacity: 0;
+      transform: scale3d(0.8, 0.7, 1);
+      transition: var(--transition-fast);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.footer {
+  text-align: center;
+  padding: 15px 0;
+
+  a,
+  span {
+    font-size: 12px;
+    color: var(--color-white);
+    opacity: 0.25;
+  }
+
+  a {
+    transition: var(--transition-primary);
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

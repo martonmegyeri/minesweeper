@@ -1,0 +1,63 @@
+.board {
+  background-color: hsla(0, 0%, 100%, 35%);
+  padding: 2px 3px;
+  box-shadow: 0 0 250px hsla(0, 0%, 100%, 20%);
+
+  &.shake1 {
+    animation: 500ms shake-1 ease-in-out;
+  }
+
+  &.shake2 {
+    animation: 500ms shake-2 ease-in-out;
+  }
+
+  .row {
+    display: flex;
+  }
+}
+
+@keyframes shake-1 {
+  10%,
+  90% {
+    transform: translate3d(-2px, 2px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-2px, -2px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(2px, 2px, 0);
+  }
+}
+
+@keyframes shake-2 {
+  10%,
+  90% {
+    transform: translate3d(-2px, 2px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-2px, -2px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(2px, 2px, 0);
+  }
+} ;

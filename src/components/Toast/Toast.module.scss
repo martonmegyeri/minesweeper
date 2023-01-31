@@ -1,0 +1,23 @@
+.toast {
+  position: fixed;
+  z-index: 1010;
+  top: 15px;
+  left: 50%;
+  transform: translate(-50%, -25px);
+  background-color: hsla(0, 0%, 0%, 50%);
+  border-radius: 50px;
+  padding: 8px 26px;
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 0.55s, var(--transition-primary);
+
+  &.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}

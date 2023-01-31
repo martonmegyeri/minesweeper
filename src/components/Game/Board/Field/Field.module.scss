@@ -1,0 +1,118 @@
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-brown-light);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 20px;
+  user-select: none;
+  transition: var(--transition-fast);
+
+  &.alternateColoring {
+    background-color: var(--color-brown);
+
+    &::before {
+      background-color: var(--color-green);
+    }
+
+    &:nth-child(odd) {
+      background-color: var(--color-brown-light);
+
+      &::before {
+        background-color: var(--color-green-light);
+      }
+    }
+  }
+
+  &:nth-child(odd) {
+    background-color: var(--color-brown);
+
+    &::before {
+      background-color: var(--color-green);
+    }
+  }
+
+  &:hover {
+    opacity: 0.75;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-green-light);
+  }
+
+  &.flagged {
+    &::before {
+      background-image: url("../../../../assets/images/flag.svg");
+      background-size: 90% 90%;
+      background-position: 50% 50%;
+    }
+  }
+
+  &.revealed {
+    &::before {
+      opacity: 0;
+    }
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &.mine {
+    background-size: 90% 90%;
+    background-position: 50% 50%;
+    background-color: var(--color-red) !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--color-black);
+      opacity: 0.35;
+      transform: translate(-50%, -50%);
+      animation: mine-pulse 2s linear infinite;
+    }
+
+    @keyframes mine-pulse {
+      0% {
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 0.2;
+      }
+    }
+  }
+
+  &.colorGreen {
+    color: var(--color-green);
+  }
+
+  &.colorBlue {
+    color: var(--color-darkblue);
+  }
+
+  &.colorRed {
+    color: var(--color-red);
+  }
+}

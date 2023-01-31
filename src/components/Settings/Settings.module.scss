@@ -1,0 +1,26 @@
+.settings {
+  .modalBody {
+    padding-top: 50px;
+  }
+
+  .block {
+    background-color: hsla(0, 0%, 0%, 5%);
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid hsla(0, 0%, 0%, 8%);
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid hsla(0, 0%, 0%, 8%);
+    }
+  }
+}

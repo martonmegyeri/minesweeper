@@ -9,9 +9,7 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <ul className={styles.navigationList}>
-        <Button onClick={() => setModalState('play')} className={styles.button}>
-          Play
-        </Button>
+        <Button onClick={() => setModalState('play')}>Play</Button>
       </ul>
       <PlayModal isOpen={modalState === 'play'} onClose={() => setModalState(null)} />
     </div>

@@ -1,13 +1,13 @@
 .settings {
   .modalBody {
-    padding-top: 50px;
+    padding: 60px 20px;
   }
 
   .block {
-    background-color: hsla(0, 0%, 0%, 5%);
+    background-color: hsl(25, 89%, 90%);
     margin-bottom: 10px;
-    border-radius: 6px;
-    border: 1px solid hsla(0, 0%, 0%, 8%);
+    border-radius: 16px;
+    border: 2px solid hsl(25, 80%, 88%);
   }
 
   .row {
@@ -15,12 +15,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    padding: 10px;
+    padding: 16px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--color-brown-dark);
 
     &:not(:last-child) {
-      border-bottom: 1px solid hsla(0, 0%, 0%, 8%);
+      border-bottom: 1px solid hsl(25, 80%, 86%);
     }
   }
 }

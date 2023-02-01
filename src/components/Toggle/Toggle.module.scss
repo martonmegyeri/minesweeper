@@ -1,17 +1,12 @@
 .toggle {
   --point-diameter: 20px;
+  --background-color: var(--color-neutral-500);
 
   position: relative;
   display: inline-block;
 
   &.on {
-    .visual {
-      background-color: var(--color-primary);
-    }
-
-    .dot {
-      transform: translate3d(20px, 0, 0);
-    }
+    --background-color: var(--color-green-dark);
   }
 
   input {
@@ -31,7 +26,7 @@
     display: block;
     width: calc(var(--point-diameter) + 4px + 20px);
     height: calc(var(--point-diameter) + 4px);
-    background-color: var(--color-neutral-500);
+    background-color: var(--background-color);
     border-radius: calc((var(--point-diameter) + 4px) / 2);
     cursor: pointer;
     pointer-events: none;
@@ -49,7 +44,6 @@
       background-color: var(--color-white);
       border-radius: 50%;
       box-shadow: hsla(0, 0%, 0%, 25%) 0 1px 2px, hsla(0, 0%, 0%, 20%) 1px 2px 5px;
-      transition: var(--transition-primary);
     }
   }
 }

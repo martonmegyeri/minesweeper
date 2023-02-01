@@ -1,4 +1,4 @@
-import '@fontsource/fredoka-one';
+import '@fontsource/nunito/variable.css';
 import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';

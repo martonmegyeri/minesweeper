@@ -20,13 +20,7 @@ export default function PlayModal({ isOpen, onClose }: Props) {
   };
 
   return (
-    <Modal
-      title="Play"
-      className={styles.playModal}
-      contentClassName={styles.modalBody}
-      isOpen={isOpen}
-      onClose={onClose}
-    >
+    <Modal className={styles.playModal} contentClassName={styles.modalBody} isOpen={isOpen} onClose={onClose}>
       <ul className={styles.list}>
         <li>
           <Button color="green" size="small" onClick={() => handleLevelClick(Level.Beginner)}>

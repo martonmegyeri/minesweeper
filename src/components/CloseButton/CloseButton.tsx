@@ -9,6 +9,7 @@ export default function CloseButton({ ...rest }: Props) {
   return (
     <Button
       color="red"
+      borderHeight={3}
       {...rest}
       className={classNames(styles.closeButton, rest.className)}
       contentClassName={styles.content}

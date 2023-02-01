@@ -33,13 +33,7 @@ export default function Settings() {
   }, [options]);
 
   return (
-    <Modal
-      title="Settings"
-      className={styles.settings}
-      contentClassName={styles.modalBody}
-      isOpen={isOpen}
-      onClose={closeSettings}
-    >
+    <Modal className={styles.settings} contentClassName={styles.modalBody} isOpen={isOpen} onClose={closeSettings}>
       <div className={styles.block}>
         <div className={styles.row}>
           Dark Mode

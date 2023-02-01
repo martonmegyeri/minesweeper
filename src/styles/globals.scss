@@ -5,31 +5,35 @@
  */
 :root {
   --color-white: hsl(0, 0%, 100%);
-  --color-neutral-100: hsl(240, 9%, 96%);
-  --color-neutral-200: hsl(240, 6%, 93%);
-  --color-neutral-300: hsl(240, 5%, 87%);
-  --color-neutral-400: hsl(240, 1%, 83%);
-  --color-neutral-500: hsl(240, 3%, 74%);
-  --color-neutral-600: hsl(240, 0%, 45%); // Lightest color that meets the text contrast ratio requirmenets
-  --color-neutral-700: hsl(240, 6%, 30%);
-  --color-neutral-800: hsl(240, 6%, 15%);
-  --color-neutral-900: hsl(240, 0%, 7%);
+  --color-neutral-100: hsl(0, 9%, 96%);
+  --color-neutral-200: hsl(0, 6%, 93%);
+  --color-neutral-300: hsl(0, 5%, 87%);
+  --color-neutral-400: hsl(0, 1%, 83%);
+  --color-neutral-500: hsl(0, 3%, 74%);
+  --color-neutral-600: hsl(0, 0%, 45%); // Lightest color that meets the text contrast ratio requirmenets
+  --color-neutral-700: hsl(0, 6%, 30%);
+  --color-neutral-800: hsl(0, 6%, 15%);
+  --color-neutral-900: hsl(0, 0%, 7%);
   --color-black: hsl(0, 0%, 0%);
 
   --color-yellow: hsl(51, 98%, 53%);
   --color-orange: hsl(40, 100%, 50%);
   --color-purple: hsl(255, 86%, 57%);
   --color-blue: hsl(192, 97%, 53%);
+  --color-blue-dark: hsl(210, 90%, 40%);
   --color-red: hsl(12, 97%, 53%);
   --color-pink: hsl(310, 89%, 52%);
   --color-green-light: hsl(79, 58%, 56%);
-  --color-green: hsl(80, 55%, 53%);
+  --color-green: hsl(80, 55%, 50%);
   --color-green-dark: hsl(128, 83%, 36%);
-  --color-brown-light: hsl(31, 51%, 73%);
-  --color-brown: hsl(30, 38%, 69%);
+  --color-brown-lightest: hsl(25, 89%, 93%);
+  --color-brown-light: hsl(13, 94%, 86%);
+  --color-brown: hsl(16, 46%, 66%);
+  --color-brown-dark: hsl(16, 30%, 40%);
 
   // Fonts
-  --font-family-primary: "Fredoka One", arial, helvetica, sans-serif;
+  --font-family-primary: "NunitoVariable", arial, helvetica, sans-serif;
+  --font-family-secondary: "Fredoka One", arial, helvetica, sans-serif;
 
   // Positioning
   --z-index-base: 0;

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Spring } from 'framer-motion';
 import { ReactNode } from 'react';
 import CloseButton from '../CloseButton';
 import PerspectiveContainer from '../PerspectiveContainer';
@@ -13,13 +13,13 @@ type Props = {
   contentClassName?: string;
 };
 
-const springIn = {
+const springIn: Spring = {
   type: 'spring',
   damping: 15,
   stiffness: 250,
 };
 
-const springOut = {
+const springOut: Spring = {
   type: 'spring',
   damping: 30,
   stiffness: 400,

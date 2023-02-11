@@ -39,23 +39,26 @@
 
   &.orange {
     --btn-color: hsl(40, 100%, 50%);
-    --btn-color-light: hsl(40, 100%, 60%);
     --btn-color-dark: hsl(15, 90%, 50%);
     --btn-color-shadow: hsla(15, 90%, 20%, 40%);
   }
 
   &.green {
     --btn-color: hsl(95, 60%, 48%);
-    --btn-color-light: hsl(95, 75%, 50%);
     --btn-color-dark: hsl(95, 70%, 38%);
     --btn-color-shadow: hsla(95, 70%, 20%, 40%);
   }
 
   &.red {
     --btn-color: hsl(10, 100%, 50%);
-    --btn-color-light: hsl(10, 100%, 60%);
     --btn-color-dark: hsl(0, 80%, 40%);
     --btn-color-shadow: hsla(0, 80%, 20%, 40%);
+  }
+
+  &.blue {
+    --btn-color: hsl(240, 84%, 62%);
+    --btn-color-dark: hsl(240, 60%, 52%);
+    --btn-color-shadow: hsla(240, 80%, 20%, 40%);
   }
 
   &.normal {

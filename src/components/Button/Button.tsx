@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ButtonHTMLAttributes, CSSProperties, ReactElement } from 'react';
 import styles from './Button.module.scss';
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'normal' | 'small';
   color?: 'orange' | 'green' | 'blue' | 'red';
   borderHeight?: number;
@@ -18,7 +18,7 @@ export default function Button({
   children,
   contentClassName,
   ...rest
-}: Props) {
+}: ButtonProps) {
   return (
     <button
       {...rest}

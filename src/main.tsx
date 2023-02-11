@@ -1,3 +1,5 @@
+import '@fontsource/lily-script-one';
+import '@fontsource/modak';
 import '@fontsource/nunito/variable.css';
 import 'normalize.css';
 import React from 'react';

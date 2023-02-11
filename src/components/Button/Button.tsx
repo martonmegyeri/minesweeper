@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, CSSProperties, ReactElement } from 'react';
 import styles from './Button.module.scss';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  size?: 'normal' | 'small';
+  size?: 'normal' | 'large';
   color?: 'orange' | 'green' | 'blue' | 'red';
   borderHeight?: number;
   children: string | ReactElement;

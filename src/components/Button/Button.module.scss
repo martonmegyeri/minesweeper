@@ -61,14 +61,14 @@
     --btn-color-shadow: hsla(240, 80%, 20%, 40%);
   }
 
-  &.normal {
+  &.large {
     .content {
       padding: 12px 36px;
       font-size: 26px;
     }
   }
 
-  &.small {
+  &.normal {
     .content {
       padding: 10px 30px;
       font-size: 22px;

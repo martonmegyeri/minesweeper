@@ -2,18 +2,27 @@ import { useEffect, useRef } from 'react';
 import { create } from 'zustand';
 import Toast from './Toast';
 
+export enum ToastType {
+  Info = 'info',
+  Success = 'success',
+  Warning = 'warning',
+  Error = 'error',
+}
+
 export type ToastState = {
   message: string;
+  type: ToastType;
   isVisible: boolean;
-  show(message: string): void;
+  show(message: string, type?: ToastType): void;
   hide(): void;
 };
 
 export const useToast = create<ToastState>(set => ({
   message: '',
+  type: ToastType.Info,
   isVisible: false,
-  show(message) {
-    set({ message, isVisible: true });
+  show(message, type = ToastType.Info) {
+    set({ message, type, isVisible: true });
   },
   hide() {
     set({ isVisible: false });
@@ -26,10 +35,14 @@ export default function Toasts() {
 
   useEffect(() => {
     if (toast.isVisible) {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      timeoutRef.current = setTimeout(() => toast.hide(), 4000);
+      startTimeout();
     }
   }, [toast.message]);
 
-  return <Toast isVisible={toast.isVisible} message={toast.message} />;
+  const startTimeout = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => toast.hide(), 3000);
+  };
+
+  return <Toast isVisible={toast.isVisible} message={toast.message} type={toast.type} />;
 }

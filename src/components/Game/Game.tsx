@@ -3,7 +3,7 @@ import { shallow } from 'zustand/shallow';
 import { Screen, useApp } from '../../stores/app';
 import { Status, useGame } from '../../stores/game';
 import Button from '../Button';
-import { useToast } from '../Toast/Toasts';
+import { useToast } from '../Toast';
 import Board from './Board/Board';
 import Confetties from './Confetties/Confetties';
 import styles from './Game.module.scss';

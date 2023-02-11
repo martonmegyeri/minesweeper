@@ -6,10 +6,11 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 
   .logo {
     position: relative;
+    margin-bottom: 50px;
 
     .bomb {
       position: absolute;
@@ -23,7 +24,6 @@
     .title {
       position: relative;
       z-index: 1;
-      margin-bottom: 100px;
       color: var(--color-brown-lightest);
       font-family: var(--font-family-secondary);
       font-weight: 600;

@@ -3,7 +3,8 @@ import { shallow } from 'zustand/shallow';
 import { Theme, useSettings } from '../../stores/settings';
 import usePrevious from '../../utils/use-previous';
 import Modal from '../Modal/Modal';
-import { useToast } from '../Toast/Toasts';
+import { useToast } from '../Toast';
+import { ToastType } from '../Toast/Toasts';
 import Toggle from '../Toggle/Toggle';
 import styles from './Settings.module.scss';
 
@@ -24,11 +25,15 @@ export default function Settings() {
     if (prevOptions === undefined) return;
 
     if (prevOptions?.theme !== options.theme) {
-      showToast(`Dark mode ${options.theme === Theme.Dark ? 'on' : 'off'}`);
+      const on = options.theme === Theme.Dark;
+      const type = on ? ToastType.Success : ToastType.Info;
+      showToast(`Dark mode ${on ? 'on' : 'off'}`, type);
     }
 
     if (prevOptions?.perspectiveMode !== options.perspectiveMode) {
-      showToast(`3D Perspective Effect ${options.perspectiveMode ? 'on' : 'off'}`);
+      const on = options.perspectiveMode;
+      const type = on ? ToastType.Success : ToastType.Info;
+      showToast(`3D Perspective Effect ${on ? 'on' : 'off'}`, type);
     }
   }, [options]);
 

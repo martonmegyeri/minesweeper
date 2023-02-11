@@ -1,1 +1,1 @@
-export { default } from './Toasts';
+export { default, useToast } from './Toasts';

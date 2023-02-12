@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import bomb from '../../assets/images/bomb.png';
 import Button from '../Button';
-import PageTransition from '../PageTransition';
+import Page from '../Page';
 import styles from './Home.module.scss';
 import PlayModal from './PlayModal/PlayModal';
 
@@ -9,7 +9,7 @@ export default function Home() {
   const [modalState, setModalState] = useState<'play' | null>(null);
 
   return (
-    <PageTransition className={styles.home}>
+    <Page className={styles.home}>
       <div className={styles.logo}>
         <img src={bomb} alt="bomb" className={styles.bomb} />
         <h1 className={styles.title}>
@@ -24,6 +24,6 @@ export default function Home() {
         </Button>
       </ul>
       <PlayModal isOpen={modalState === 'play'} onClose={() => setModalState(null)} />
-    </PageTransition>
+    </Page>
   );
 }

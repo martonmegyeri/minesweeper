@@ -1,6 +1,4 @@
 import { AnimatePresence } from 'framer-motion';
-import styles from './App.module.scss';
-import Footer from './components/Footer';
 import Game from './components/Game';
 import Home from './components/Home';
 import Settings from './components/Settings';
@@ -15,11 +13,10 @@ export default function App() {
   }[screen];
 
   return (
-    <div className={styles.app}>
+    <>
       <Toasts />
       <Settings />
       <AnimatePresence mode="wait">{route}</AnimatePresence>
-      <Footer />
-    </div>
+    </>
   );
 }

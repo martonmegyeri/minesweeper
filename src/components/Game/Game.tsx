@@ -3,7 +3,7 @@ import { shallow } from 'zustand/shallow';
 import { Screen, useApp } from '../../stores/app';
 import { Status, useGame } from '../../stores/game';
 import Button from '../Button';
-import PageTransition from '../PageTransition';
+import Page from '../Page';
 import Board from './Board/Board';
 import Confetties from './Confetties/Confetties';
 import styles from './Game.module.scss';
@@ -29,7 +29,7 @@ export default function Game() {
   };
 
   return (
-    <PageTransition className={styles.game}>
+    <Page className={styles.game}>
       {status === Status.Win && <Confetties />}
       <div className={styles.content}>
         <Timer time={timeMs} />
@@ -47,6 +47,6 @@ export default function Game() {
           Back to the main menu
         </Button>
       </div>
-    </PageTransition>
+    </Page>
   );
 }

@@ -1,0 +1,14 @@
+.pageTransition {
+  flex-grow: 1;
+  display: flex;
+
+  .mask {
+    content: "";
+    position: fixed;
+    z-index: calc(var(--z-index-above) + 1);
+    inset: 0;
+    background-color: var(--color-black);
+    pointer-events: none;
+    filter: blur(10px);
+  }
+}

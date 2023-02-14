@@ -21,9 +21,7 @@ export default function PageTransition({ children, ...rest }: Props) {
         exit={{
           WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) -40%, black 0%)',
         }}
-        transition={{ type: 'spring', damping: 15, mass: 1.2, stiffness: 80 }}
-        // transition={{ type: 'spring', duration: 1.2, bounce: 0.2 }}
-        // transition={{ type: 'tween', ease: 'anticipate', duration: 1 }}
+        transition={{ type: 'tween', ease: 'easeInOut', duration: 0.8 }}
       />
       {children}
     </div>

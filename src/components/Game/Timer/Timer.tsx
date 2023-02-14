@@ -1,4 +1,3 @@
-import hourglass from '../../../assets/images/hourglass.svg';
 import styles from './Timer.module.scss';
 
 type Props = {
@@ -12,7 +11,6 @@ export default function Timer({ time }: Props) {
 
   return (
     <div className={styles.timer}>
-      <img src={hourglass} alt="timer" />
       <div className={styles.time}>{formattedTime}</div>
     </div>
   );

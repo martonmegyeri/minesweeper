@@ -16,6 +16,7 @@
   text-shadow: 0 2px 2px var(--toast-color), 2px 2px 2px var(--toast-color);
   color: var(--color-white);
   font-size: 16px;
+  font-weight: 600;
   transition: background-color 300ms ease-out, border-color 300ms ease-out, box-shadow 300ms ease-out,
     text-shadow 300ms ease-out;
 
@@ -53,9 +54,10 @@
 
   .icon {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     background-repeat: no-repeat;
+    background-size: cover;
     filter: invert(1) drop-shadow(0px 2px 1px var(--toast-color));
   }
 }

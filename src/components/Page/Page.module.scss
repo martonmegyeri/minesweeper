@@ -3,23 +3,47 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--color-background);
-  background: var(--color-background-gradient);
-  background-size: 200% 100%;
-  transition: var(--transition-primary);
-  animation: background 5s ease-in-out infinite;
+  background-size: 200% 125%;
+  background-color: var(--page-background-color);
+  background-image: radial-gradient(at 51% 48%, var(--page-color-1) 0px, transparent 50%),
+    radial-gradient(at 20% 68%, var(--page-color-2) 0px, transparent 50%),
+    radial-gradient(at 100% 74%, var(--page-color-3) 0px, transparent 50%),
+    radial-gradient(at 52% 3%, var(--page-color-4) 0px, transparent 50%),
+    radial-gradient(at 27% 22%, var(--page-color-5) 0px, transparent 50%),
+    radial-gradient(at 88% 14%, var(--page-color-6) 0px, transparent 50%);
+  animation: background 10s ease-in-out infinite;
+}
+
+body[data-theme="dark"] .page {
+  --page-background-color: hsla(222, 70%, 8%, 1);
+  --page-color-1: hsla(240, 58%, 23%, 0.74);
+  --page-color-2: hsla(252, 70%, 17%, 1);
+  --page-color-3: hsla(264, 63%, 20%, 0.75);
+  --page-color-4: hsla(222, 87%, 15%, 0.74);
+  --page-color-5: hsla(272, 100%, 46%, 0.3);
+  --page-color-6: hsla(256, 68%, 22%, 0.51);
+}
+
+body[data-theme="light"] .page {
+  --page-background-color: hsla(222, 70%, 85%, 1);
+  --page-color-1: hsla(240, 58%, 80%, 0.74);
+  --page-color-2: hsla(252, 70%, 80%, 1);
+  --page-color-3: hsla(264, 63%, 80%, 0.75);
+  --page-color-4: hsla(222, 87%, 80%, 0.74);
+  --page-color-5: hsla(272, 100%, 80%, 0.3);
+  --page-color-6: hsla(256, 68%, 80%, 0.51);
 }
 
 @keyframes background {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 25%;
   }
 
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 }

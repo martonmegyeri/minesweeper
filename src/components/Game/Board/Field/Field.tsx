@@ -1,47 +1,55 @@
 import classNames from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 import styles from './Field.module.scss';
+import Flag from './Flag/Flag';
+import Mine from './Mine/Mine';
+import Text from './Text/Text';
 
 type Props = {
   text: string;
-  mine: boolean;
-  flagged: boolean;
-  revealed: boolean;
-  rowIndex: number;
-  colIndex: number;
-  alternateColoring?: boolean;
-  onLeftClick: (row: number, col: number) => void;
-  onRightClick: (row: number, col: number) => void;
+  isMine: boolean;
+  isFlagged: boolean;
+  isRevealed: boolean;
+  borderHeight?: number;
+  onLeftClick: () => void;
+  onRightClick: () => void;
 };
 
 export default function Field({
   text,
-  mine,
-  flagged,
-  revealed,
-  rowIndex,
-  colIndex,
-  alternateColoring,
+  isMine,
+  isFlagged,
+  isRevealed,
+  borderHeight = 6,
   onLeftClick,
   onRightClick,
 }: Props) {
   return (
-    <div
+    <button
       className={classNames(styles.field, {
-        [styles.mine]: mine,
-        [styles.flagged]: flagged,
-        [styles.revealed]: revealed,
-        [styles.colorBlue]: parseInt(text) === 1,
-        [styles.colorGreen]: parseInt(text) === 2,
-        [styles.colorRed]: parseInt(text) >= 3,
-        [styles.alternateColoring]: alternateColoring,
+        [styles.mine]: isMine,
+        [styles.revealed]: isRevealed,
       })}
-      onClick={() => onLeftClick(rowIndex, colIndex)}
+      style={{ '--bottom-border-height': `${borderHeight}px` } as React.CSSProperties}
+      onClick={onLeftClick}
       onContextMenu={event => {
         event.preventDefault();
-        onRightClick(rowIndex, colIndex);
+        onRightClick();
       }}
     >
-      {text}
-    </div>
+      <motion.div
+        style={{ y: -borderHeight }}
+        whileTap={!isRevealed && !isFlagged ? { y: -borderHeight * 0.4 } : {}}
+        whileHover={{ y: -borderHeight * 0.75 }}
+        transition={{ type: 'spring', damping: 15, stiffness: 350 }}
+        className={styles.content}
+      >
+        <AnimatePresence initial={false}>
+          {isRevealed && text && <Text>{text}</Text>}
+          {isRevealed && isMine && <Mine />}
+          {!isRevealed && isFlagged && <Flag />}
+        </AnimatePresence>
+      </motion.div>
+    </button>
   );
 }

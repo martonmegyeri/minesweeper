@@ -13,13 +13,13 @@ export default function PageTransition({ children, ...rest }: Props) {
       <motion.div
         className={styles.mask}
         initial={{
-          WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) -40%, black 0%)',
+          WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) -30%, black 0%)',
         }}
         animate={{
-          WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) 100%, black 140%)',
+          WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) 100%, black 130%)',
         }}
         exit={{
-          WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) -40%, black 0%)',
+          WebkitMask: 'radial-gradient(circle, hsla(0, 0%, 0%, 0%) -30%, black 0%)',
         }}
         transition={{ type: 'tween', ease: 'easeInOut', duration: 0.8 }}
       />

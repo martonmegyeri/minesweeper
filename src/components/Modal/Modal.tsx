@@ -15,8 +15,8 @@ type Props = {
 
 const springIn: Spring = {
   type: 'spring',
-  damping: 15,
-  stiffness: 250,
+  damping: 10,
+  stiffness: 100,
 };
 
 const springOut: Spring = {
@@ -40,9 +40,9 @@ export default function Modal({ isOpen, onClose, children, className, contentCla
           <div className={styles.background} onClick={() => onClose?.()} />
           <PerspectiveContainer>
             <motion.div
-              initial={{ scale: 0.8 }}
+              initial={{ scale: 0.6 }}
               animate={{ scale: 1, transition: springIn }}
-              exit={{ scale: 0.8, transition: springOut }}
+              exit={{ scale: 0.9, transition: springOut }}
               className={styles.body}
             >
               <CloseButton onClick={onClose} className={styles.close} />

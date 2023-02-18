@@ -15,17 +15,17 @@
 }
 
 body[data-theme="dark"] .page {
-  --page-background-color: hsla(222, 70%, 8%, 1);
+  --page-background-color: hsla(222, 70%, 15%, 1);
   --page-color-1: hsla(240, 58%, 23%, 0.74);
   --page-color-2: hsla(252, 70%, 17%, 1);
-  --page-color-3: hsla(264, 63%, 20%, 0.75);
+  --page-color-3: hsla(264, 68%, 20%, 0.9);
   --page-color-4: hsla(222, 87%, 15%, 0.74);
-  --page-color-5: hsla(272, 100%, 46%, 0.3);
+  --page-color-5: hsla(280, 100%, 46%, 0.25);
   --page-color-6: hsla(256, 68%, 22%, 0.51);
 }
 
 body[data-theme="light"] .page {
-  --page-background-color: hsla(222, 70%, 85%, 1);
+  --page-background-color: hsla(222, 70%, 95%, 1);
   --page-color-1: hsla(240, 58%, 80%, 0.74);
   --page-color-2: hsla(252, 70%, 80%, 1);
   --page-color-3: hsla(264, 63%, 80%, 0.75);

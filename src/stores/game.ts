@@ -15,7 +15,7 @@ export type GameState = {
 };
 
 export const useGame = create<GameState>(set => ({
-  selectedLevel: Level.Beginner,
+  selectedLevel: Level.Easy,
   status: Status.InProgress,
   selectLevel(level) {
     set({ selectedLevel: level });

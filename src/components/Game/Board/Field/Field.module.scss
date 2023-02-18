@@ -1,119 +1,60 @@
+@use "../../../../styles/mixins.scss";
+
 .field {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  --border-radius: 10px;
+
+  @include mixins.reset-button;
   position: relative;
-  width: 30px;
-  height: 30px;
-  background-color: var(--color-brown-light);
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--color-brown-dark);
+  height: 100%;
+  aspect-ratio: 1;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
-  transition: var(--transition-fast);
+  cursor: pointer;
+  border-radius: var(--border-radius);
 
-  &.alternateColoring {
-    background-color: var(--color-brown);
-
-    &::before {
-      background-color: var(--color-green);
-    }
-
-    &:nth-child(odd) {
-      background-color: var(--color-brown-light);
-
-      &::before {
-        background-color: var(--color-green-light);
-      }
-    }
-  }
-
-  &:nth-child(odd) {
-    background-color: var(--color-brown);
-
-    &::before {
-      background-color: var(--color-green);
-    }
-  }
-
-  &:hover {
-    opacity: 0.75;
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(0.9);
+  &:not(:disabled):hover {
   }
 
   &::before {
     content: "";
     position: absolute;
-    z-index: 1;
-    top: 0;
+    top: var(--bottom-border-height);
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-green-light);
+    right: 0;
+    bottom: 0;
+    background-color: var(--btn-color-dark);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px var(--btn-color-shadow);
   }
 
-  &.flagged {
-    &::before {
-      background-image: url("../../../../assets/images/flag.svg");
-      background-size: 90% 90%;
-      background-position: 50% 50%;
-    }
+  &:not(.revealed) {
+    --btn-color: var(--color-green-light);
+    --btn-color-dark: var(--color-green);
+    --btn-color-shadow: var(--color-green-dark);
   }
 
   &.revealed {
-    &::before {
-      opacity: 0;
-    }
-
-    &:hover {
-      transform: scale(1);
-    }
+    --btn-color: var(--color-brown-light);
+    --btn-color-dark: var(--color-brown);
+    --btn-color-shadow: var(--color-brown-dark);
   }
 
-  &.mine {
-    background-size: 90% 90%;
-    background-position: 50% 50%;
-    background-color: var(--color-red) !important;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--color-black);
-      opacity: 0.35;
-      transform: translate(-50%, -50%);
-      animation: mine-pulse 2s linear infinite;
-    }
-
-    @keyframes mine-pulse {
-      0% {
-        opacity: 0.35;
-      }
-
-      50% {
-        opacity: 0.2;
-      }
-    }
+  &.revealed.mine {
+    --btn-color: var(--color-red);
+    --btn-color-dark: var(--color-red-dark);
+    --btn-color-shadow: var(--color-red-darker);
   }
 
-  &.colorGreen {
-    color: var(--color-green-dark);
-  }
-
-  &.colorBlue {
-    color: var(--color-blue-dark);
-  }
-
-  &.colorRed {
-    color: var(--color-red);
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - var(--bottom-border-height));
+    margin-top: var(--bottom-border-height);
+    border-radius: var(--border-radius);
+    background-color: var(--btn-color);
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 5%), inset 0 3px 10px hsla(0, 0%, 100%, 40%);
   }
 }

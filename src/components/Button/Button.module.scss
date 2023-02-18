@@ -5,7 +5,6 @@
 
   @include mixins.reset-button;
   position: relative;
-  padding-top: var(--bottom-border-height);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   cursor: pointer;
@@ -44,9 +43,9 @@
   }
 
   &.green {
-    --btn-color: hsl(95, 60%, 48%);
-    --btn-color-dark: hsl(95, 70%, 38%);
-    --btn-color-shadow: hsla(95, 70%, 20%, 40%);
+    --btn-color: var(--color-green-light);
+    --btn-color-dark: var(--color-green);
+    --btn-color-shadow: var(--color-green-dark);
   }
 
   &.red {
@@ -81,6 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: var(--bottom-border-height);
     border-radius: var(--border-radius);
     background-color: var(--btn-color);
     font-size: 26px;

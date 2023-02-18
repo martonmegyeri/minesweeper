@@ -23,16 +23,16 @@ export default function PlayModal({ isOpen, onClose }: Props) {
     <Modal className={styles.playModal} contentClassName={styles.modalBody} isOpen={isOpen} onClose={onClose}>
       <ul className={styles.list}>
         <li>
-          <Button color="green" onClick={() => handleLevelClick(Level.Beginner)}>
-            Beginner
+          <Button color="green" onClick={() => handleLevelClick(Level.Easy)}>
+            Easy
           </Button>
         </li>
         <li>
-          <Button onClick={() => handleLevelClick(Level.Intermediate)}>Intermediate</Button>
+          <Button onClick={() => handleLevelClick(Level.Medium)}>Medium</Button>
         </li>
         <li>
-          <Button color="red" onClick={() => handleLevelClick(Level.Expert)}>
-            Expert
+          <Button color="red" onClick={() => handleLevelClick(Level.Hard)}>
+            Hard
           </Button>
         </li>
       </ul>

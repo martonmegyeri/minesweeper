@@ -50,10 +50,6 @@ export default function Game() {
       <div className={styles.content}>
         <Timer time={timeMs} />
         <Board onStartTimer={startTimer} onStopTimer={stopTimer} />
-        <h1 className={styles.status}>
-          {status === Status.Win && 'You Win!'}
-          {status === Status.GameOver && 'Game Over...'}
-        </h1>
       </div>
     </Page>
   );

@@ -1,0 +1,24 @@
+.text {
+  width: 50%;
+  height: 50%;
+
+  &.green {
+    --text-color: var(--color-green);
+  }
+
+  &.blue {
+    --text-color: var(--color-blue);
+  }
+
+  &.red {
+    --text-color: var(--color-red);
+  }
+
+  text {
+    font-size: 1.4em;
+    font-weight: 800;
+    fill: var(--text-color);
+    text-shadow: 0 1px var(--color-brown), 0 -1px var(--color-brown), 1px 0 var(--color-brown),
+      -1px 0 var(--color-brown);
+  }
+}

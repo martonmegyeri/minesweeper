@@ -1,9 +1,7 @@
-import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { LEVELS } from '../../../config/levels';
 import { Status, useGame } from '../../../stores/game';
 import getRandom from '../../../utils/get-random';
-import PerspectiveContainer from '../../PerspectiveContainer';
 import styles from './Board.module.scss';
 import Field from './Field/Field';
 
@@ -174,14 +172,12 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
       setBoard(revealAllFields(board));
       setStatus(Status.GameOver);
       onStopTimer();
-      shakeTheField();
       return;
     }
 
     // If field is empty - then recursively reveal the nearest empty and numbered fields
     if (board[row][col].text === '' && !board[row][col].revealed) {
       revealFields(board, row, col);
-      shakeTheField();
     }
 
     // If field is numbered - then reveal it
@@ -200,11 +196,6 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
     }
   };
 
-  const shakeTheField = () => {
-    // const { shakeTheField } = this.state;
-    // this.setState({ shakeTheField: shakeTheField === 0 || shakeTheField === 2 ? 1 : 2 });
-  };
-
   /**
    * Handles the right clicks on board items
    */
@@ -218,34 +209,25 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
   };
 
   return (
-    <div>
-      <PerspectiveContainer>
-        <div
-          className={classNames(styles.board, {
-            // [styles.shake1]: this.state.shakeTheField === 1, // TODO:
-            // [styles.shake2]: this.state.shakeTheField === 2,
-          })}
-        >
-          {board.map((row, rowIndex) => (
-            <div className={styles.row} key={rowIndex}>
-              {row.map((item, colIndex) => (
-                <Field
-                  text={item.text}
-                  mine={item.mine}
-                  flagged={item.flagged}
-                  revealed={item.revealed}
-                  rowIndex={rowIndex}
-                  colIndex={colIndex}
-                  onLeftClick={handleLeftClick}
-                  onRightClick={handleRightClick}
-                  key={colIndex}
-                  alternateColoring={rowIndex % 2 === 0}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      </PerspectiveContainer>
+    <div
+      className={styles.board}
+      style={{
+        gridTemplateColumns: `repeat(${levelDetails.width}, minmax(0, 5vmin))`,
+      }}
+    >
+      {board.map((row, rowIndex) =>
+        row.map((item, colIndex) => (
+          <Field
+            key={`${rowIndex}${colIndex}`}
+            text={item.text}
+            isMine={item.mine}
+            isFlagged={item.flagged}
+            isRevealed={item.revealed}
+            onLeftClick={() => handleLeftClick(rowIndex, colIndex)}
+            onRightClick={() => handleRightClick(rowIndex, colIndex)}
+          />
+        ))
+      )}
     </div>
   );
 }

@@ -23,11 +23,12 @@ export default function Button({
     <button
       {...rest}
       className={classNames(styles.button, [styles[size]], [styles[color]], rest.className)}
-      style={{ '--bottom-border-height': `${borderHeight}px` } as CSSProperties}
+      style={{ '--bottom-border-height': `${borderHeight}px`, ...rest.style } as CSSProperties}
     >
       <motion.div
         style={{ y: -borderHeight }}
-        whileTap={{ y: -borderHeight / 2 }}
+        whileTap={{ y: -borderHeight * 0.4 }}
+        whileHover={{ y: -borderHeight * 0.75 }}
         transition={{ type: 'spring', damping: 15, stiffness: 350 }}
         className={classNames(styles.content, contentClassName)}
       >

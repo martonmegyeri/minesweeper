@@ -73,14 +73,34 @@
 
   &.variant4 {
     div:nth-child(1) {
+      bottom: 25%;
+      left: 10%;
+      width: 14%;
+    }
+
+    div:nth-child(2) {
+      bottom: 20%;
+      right: 15%;
+      width: 18%;
+    }
+
+    div:nth-child(3) {
+      bottom: 10%;
+      right: 40%;
+      width: 12%;
+    }
+  }
+
+  &.variant5 {
+    div:nth-child(1) {
       top: 15%;
       right: 15%;
       width: 18%;
     }
 
     div:nth-child(2) {
-      bottom: 15%;
-      right: 50%;
+      bottom: 10%;
+      left: 30%;
       width: 14%;
     }
   }

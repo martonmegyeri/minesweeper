@@ -1,3 +1,4 @@
+import { motion, useAnimationControls } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { LEVELS } from '../../../config/levels';
 import { Status, useGame } from '../../../stores/game';
@@ -24,6 +25,7 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
   const [started, setStarted] = useState(false);
   const levelDetails = LEVELS[selectedLevel];
   const [board, setBoard] = useState<Board>([]);
+  const boardAnimationControls = useAnimationControls();
 
   useEffect(() => {
     const filledBoard = createBoard();
@@ -171,6 +173,7 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
     if (board[row][col].mine) {
       setBoard(revealAllFields(board));
       setStatus(Status.GameOver);
+      shakeField();
       onStopTimer();
       return;
     }
@@ -178,6 +181,7 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
     // If field is empty - then recursively reveal the nearest empty and numbered fields
     if (board[row][col].text === '' && !board[row][col].revealed) {
       revealFields(board, row, col);
+      shakeField();
     }
 
     // If field is numbered - then reveal it
@@ -208,12 +212,22 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
     setBoard(boardCopy);
   };
 
+  const shakeField = () => {
+    boardAnimationControls.start({
+      rotate: [-0.25, 0, 0.25, 0],
+      y: [2, 0, -2, 0],
+      x: [-2, 0, -2, 0],
+      transition: { repeat: 1, repeatType: 'mirror', duration: 0.2 },
+    });
+  };
+
   return (
-    <div
+    <motion.div
       className={styles.board}
       style={{
         gridTemplateColumns: `repeat(${levelDetails.width}, minmax(0, 5vmin))`,
       }}
+      animate={boardAnimationControls}
     >
       {board.map((row, rowIndex) =>
         row.map((item, colIndex) => (
@@ -228,6 +242,6 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
           />
         ))
       )}
-    </div>
+    </motion.div>
   );
 }

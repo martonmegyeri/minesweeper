@@ -11,9 +11,6 @@
   user-select: none;
   border-radius: var(--border-radius);
 
-  &:not(:disabled):hover {
-  }
-
   &::before {
     content: "";
     position: absolute;
@@ -24,6 +21,7 @@
     background-color: var(--btn-color-dark);
     border-radius: var(--border-radius);
     box-shadow: 0 2px 5px var(--btn-color-shadow);
+    transition: 100ms ease-out;
   }
 
   &:not(.revealed) {
@@ -57,5 +55,6 @@
     border-radius: var(--border-radius);
     background-color: var(--btn-color);
     box-shadow: 0 0 10px hsla(0, 0%, 0%, 5%), inset 0 3px 10px hsla(0, 0%, 100%, 40%);
+    transition: 75ms ease-out;
   }
 }

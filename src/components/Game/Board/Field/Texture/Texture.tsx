@@ -19,7 +19,7 @@ function useRandomNumber() {
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    setNumber(getRandom(0, 4));
+    setNumber(getRandom(0, 5));
   }, []);
 
   return number;

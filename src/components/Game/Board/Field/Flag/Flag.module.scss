@@ -4,10 +4,9 @@
   --flag-bar-height: 65%;
   --flag-width: 25%;
 
-  position: relative;
+  position: absolute;
   z-index: 1;
-  width: 100%;
-  height: 100%;
+  inset: 0;
 
   .base {
     --flag-base-position: calc((100% - var(--flag-base-width)) / 2);

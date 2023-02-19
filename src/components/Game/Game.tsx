@@ -43,7 +43,15 @@ export default function Game() {
           }}
           icon={<img src={back} alt="Back to the main menu" />}
         />,
-        <IconButton key={1} color="blue" onClick={() => {}} icon={<img src={restart} alt="Restart" />} />,
+        <IconButton
+          key={1}
+          color="blue"
+          onClick={() => {
+            goToScreen(Screen.Reset);
+            setStatus(Status.InProgress);
+          }}
+          icon={<img src={restart} alt="Restart" />}
+        />,
       ]}
     >
       {status === Status.Win && <Confetties />}

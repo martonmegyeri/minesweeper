@@ -3,6 +3,7 @@ import { create } from 'zustand';
 export enum Screen {
   Home,
   Game,
+  Reset,
 }
 
 export type AppState = {

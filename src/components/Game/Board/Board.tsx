@@ -171,17 +171,17 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
 
     // If field is a mine - Game Over
     if (board[row][col].mine) {
+      shakeField();
       setBoard(revealAllFields(board));
       setStatus(Status.GameOver);
-      shakeField();
       onStopTimer();
       return;
     }
 
     // If field is empty - then recursively reveal the nearest empty and numbered fields
     if (board[row][col].text === '' && !board[row][col].revealed) {
-      revealFields(board, row, col);
       shakeField();
+      revealFields(board, row, col);
     }
 
     // If field is numbered - then reveal it
@@ -214,20 +214,18 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
 
   const shakeField = () => {
     boardAnimationControls.start({
-      rotate: [-0.25, 0, 0.25, 0],
-      y: [2, 0, -2, 0],
-      x: [-2, 0, -2, 0],
-      transition: { repeat: 1, repeatType: 'mirror', duration: 0.2 },
+      rotate: [-0.15, 0.15, -0.15, 0.15, 0],
+      y: [2, -2, 1, -2, 0],
+      x: [-2, 1, -2, -1, 0],
+      transition: { type: 'spring', damping: 15, stiffness: 350 },
     });
   };
 
   return (
     <motion.div
       className={styles.board}
-      style={{
-        gridTemplateColumns: `repeat(${levelDetails.width}, minmax(0, 5vmin))`,
-      }}
       animate={boardAnimationControls}
+      style={{ gridTemplateColumns: `repeat(${levelDetails.width}, minmax(0, 5vmin))` }}
     >
       {board.map((row, rowIndex) =>
         row.map((item, colIndex) => (

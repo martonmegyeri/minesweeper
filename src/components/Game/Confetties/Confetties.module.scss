@@ -20,7 +20,7 @@
 $colors: (#e94a3f, #faa040, #5fc9f5);
 
 @for $i from 0 through 250 {
-  $w: random(8);
+  $w: random(16);
   $l: random(100);
 
   @keyframes drop-#{$i} {
@@ -37,6 +37,6 @@ $colors: (#e94a3f, #faa040, #5fc9f5);
     left: unquote($l + "%");
     opacity: decimal-round(random() + 0.5, 1);
     transform: rotate(#{round(random() * 360)}deg);
-    animation: drop-#{$i} unquote(decimal-round(4 + random(), 1) + "s") unquote(decimal-round(random() * 4, 1) + "s");
+    animation: drop-#{$i} unquote(decimal-round(6 + random(), 1) + "s") unquote(decimal-round(random() * 6, 1) + "s");
   }
 }

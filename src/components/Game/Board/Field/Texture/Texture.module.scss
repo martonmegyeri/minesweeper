@@ -1,0 +1,87 @@
+.texture {
+  position: absolute;
+  inset: 0;
+
+  div {
+    position: absolute;
+    aspect-ratio: 1;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    background-color: var(--btn-color-dark);
+    opacity: 0.4;
+  }
+
+  &.variant1 {
+    div:nth-child(1) {
+      top: 15%;
+      left: 15%;
+      width: 22%;
+    }
+
+    div:nth-child(2) {
+      top: 12%;
+      left: 50%;
+      width: 18%;
+    }
+
+    div:nth-child(3) {
+      top: 40%;
+      left: 42%;
+      width: 14%;
+    }
+  }
+
+  &.variant2 {
+    div:nth-child(1) {
+      bottom: 15%;
+      right: 15%;
+      width: 20%;
+    }
+
+    div:nth-child(2) {
+      top: 18%;
+      right: 12%;
+      width: 16%;
+    }
+
+    div:nth-child(3) {
+      top: 40%;
+      right: 34%;
+      width: 12%;
+    }
+  }
+
+  &.variant3 {
+    div:nth-child(1) {
+      bottom: 15%;
+      left: 15%;
+      width: 26%;
+    }
+
+    div:nth-child(2) {
+      top: 50%;
+      right: 12%;
+      width: 16%;
+    }
+
+    div:nth-child(3) {
+      top: 20%;
+      left: 30%;
+      width: 12%;
+    }
+  }
+
+  &.variant4 {
+    div:nth-child(1) {
+      top: 15%;
+      right: 15%;
+      width: 18%;
+    }
+
+    div:nth-child(2) {
+      bottom: 15%;
+      right: 50%;
+      width: 14%;
+    }
+  }
+}

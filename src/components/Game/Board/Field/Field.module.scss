@@ -9,7 +9,6 @@
   aspect-ratio: 1;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  cursor: pointer;
   border-radius: var(--border-radius);
 
   &:not(:disabled):hover {
@@ -31,6 +30,8 @@
     --btn-color: var(--color-green-light);
     --btn-color-dark: var(--color-green);
     --btn-color-shadow: var(--color-green-dark);
+
+    cursor: pointer;
   }
 
   &.revealed {

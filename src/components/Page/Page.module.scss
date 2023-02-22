@@ -15,13 +15,13 @@
 }
 
 body[data-theme="dark"] .page {
-  --page-background-color: hsla(222, 70%, 15%, 1);
-  --page-color-1: hsla(240, 58%, 23%, 0.74);
-  --page-color-2: hsla(252, 70%, 17%, 1);
-  --page-color-3: hsla(264, 68%, 20%, 0.9);
-  --page-color-4: hsla(222, 87%, 15%, 0.74);
+  --page-background-color: hsla(222, 70%, 20%, 1);
+  --page-color-1: hsla(250, 58%, 25%, 0.74);
+  --page-color-2: hsla(252, 70%, 20%, 1);
+  --page-color-3: hsla(264, 68%, 25%, 0.9);
+  --page-color-4: hsla(222, 87%, 20%, 0.74);
   --page-color-5: hsla(280, 100%, 46%, 0.25);
-  --page-color-6: hsla(256, 68%, 22%, 0.51);
+  --page-color-6: hsla(256, 68%, 25%, 0.51);
 }
 
 body[data-theme="light"] .page {

@@ -1,0 +1,31 @@
+.completedModal {
+  .modalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    --modal-header-width: 70%;
+
+    position: absolute;
+    top: -40px;
+    left: calc((100% - var(--modal-header-width)) / 2);
+    width: var(--modal-header-width);
+    padding: 16px;
+    border-radius: 20px;
+    background: linear-gradient(var(--color-orange-light), var(--color-orange));
+    box-shadow: 0 8px var(--color-orange-dark);
+    font-weight: 1000;
+    font-size: 30px;
+    text-align: center;
+    color: var(--color-brown-lightest);
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+}

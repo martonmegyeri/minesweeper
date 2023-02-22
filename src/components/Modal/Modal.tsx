@@ -45,7 +45,7 @@ export default function Modal({ isOpen, onClose, children, className, contentCla
               exit={{ scale: 0.9, transition: springOut }}
               className={styles.body}
             >
-              <CloseButton onClick={onClose} className={styles.close} />
+              {onClose && <CloseButton onClick={onClose} className={styles.close} />}
               <div className={classNames(styles.content, contentClassName)}>{children}</div>
             </motion.div>
           </PerspectiveContainer>

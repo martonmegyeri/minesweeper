@@ -52,6 +52,7 @@ export default function Game() {
       {status === Status.Win && <Confetties />}
       <div className={styles.content}>
         <Timer time={timerSeconds} />
+        {/* TODO: Bombs - Moves - Time */}
         <Board onStartTimer={timerActions.start} onStopTimer={timerActions.stop} />
       </div>
       <CompletedModal isOpen={isCompletedModalOpen} />

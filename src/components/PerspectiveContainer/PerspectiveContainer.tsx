@@ -26,7 +26,7 @@ export default function PerspectiveContainer({ children }: Props) {
       const relativeCenterX = rect.x - event.clientX + rect.width / 2;
       const relativeCenterY = rect.y - event.clientY + rect.height / 2;
 
-      const STRENGTH_FACTOR = 1500;
+      const STRENGTH_FACTOR = 3000;
       const x = (relativeCenterX / STRENGTH_FACTOR) * -1;
       const y = relativeCenterY / STRENGTH_FACTOR;
       innerRef.current.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;

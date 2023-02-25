@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { AnimatePresence, motion, Spring } from 'framer-motion';
 import { ReactNode } from 'react';
 import CloseButton from '../CloseButton';
-import PerspectiveContainer from '../PerspectiveContainer';
+import ParallaxLayerContainer from '../ParallaxLayerContainer';
 import styles from './Modal.module.scss';
 
 type Props = {
@@ -38,7 +38,7 @@ export default function Modal({ isOpen, onClose, children, className, contentCla
           exit={{ opacity: 0, transition: springOut }}
         >
           <div className={styles.background} onClick={() => onClose?.()} />
-          <PerspectiveContainer>
+          <ParallaxLayerContainer>
             <motion.div
               initial={{ scale: 0.6 }}
               animate={{ scale: 1, transition: springIn }}
@@ -48,7 +48,7 @@ export default function Modal({ isOpen, onClose, children, className, contentCla
               {onClose && <CloseButton onClick={onClose} className={styles.close} />}
               <div className={classNames(styles.content, contentClassName)}>{children}</div>
             </motion.div>
-          </PerspectiveContainer>
+          </ParallaxLayerContainer>
         </motion.div>
       )}
     </AnimatePresence>

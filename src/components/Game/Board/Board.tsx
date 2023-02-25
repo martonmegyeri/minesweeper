@@ -1,5 +1,5 @@
 import { motion, useAnimationControls } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { LEVELS } from '../../../config/levels';
 import { Status, useGame } from '../../../stores/game';
 import getRandom from '../../../utils/get-random';
@@ -18,14 +18,24 @@ type Board = Row[];
 type Props = {
   onStartTimer: () => void;
   onStopTimer: () => void;
+  onMove: () => void;
+  onPlaceFlag: (placedFlags: number) => void;
 };
 
-export default function Board({ onStartTimer, onStopTimer }: Props) {
+export default function Board({ onStartTimer, onStopTimer, onMove, onPlaceFlag }: Props) {
   const [selectedLevel, status, setStatus] = useGame(state => [state.selectedLevel, state.status, state.setStatus]);
   const [started, setStarted] = useState(false);
   const levelDetails = LEVELS[selectedLevel];
   const [board, setBoard] = useState<Board>([]);
   const boardAnimationControls = useAnimationControls();
+  const [placedFlags, dispatchFlagAction] = useReducer((prevValue: number, action: 'increment' | 'decrement') => {
+    switch (action) {
+      case 'increment':
+        return Math.min(levelDetails.mines, prevValue + 1);
+      case 'decrement':
+        return Math.max(0, prevValue - 1);
+    }
+  }, 0);
 
   useEffect(() => {
     const filledBoard = createBoard();
@@ -33,6 +43,10 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
     const boardWithNumbers = fillBoardWithMineIndicatorNumbers(boardWithMines);
     setBoard(boardWithNumbers);
   }, []);
+
+  useEffect(() => {
+    onPlaceFlag(placedFlags);
+  }, [placedFlags]);
 
   const createBoard = () => {
     const newBoard: Board = [];
@@ -171,6 +185,7 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
 
     // If field is a mine - Game Over
     if (board[row][col].mine) {
+      onMove();
       shakeField();
       setBoard(revealAllFields(board));
       setStatus(Status.GameOver);
@@ -180,12 +195,14 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
 
     // If field is empty - then recursively reveal the nearest empty and numbered fields
     if (board[row][col].text === '' && !board[row][col].revealed) {
+      onMove();
       shakeField();
       revealFields(board, row, col);
     }
 
     // If field is numbered - then reveal it
     if (board[row][col].text !== '') {
+      onMove();
       const boardCopy = [...board];
       boardCopy[row][col].flagged = false;
       boardCopy[row][col].revealed = true;
@@ -206,10 +223,17 @@ export default function Board({ onStartTimer, onStopTimer }: Props) {
   const handleRightClick = (row: number, col: number) => {
     if (status === Status.Win || status === Status.GameOver) return;
 
-    const boardCopy = [...board];
-    boardCopy[row][col].flagged = !boardCopy[row][col].flagged;
+    const flagged = board[row][col].flagged;
+    if (!flagged && placedFlags === levelDetails.mines) {
+      shakeField();
+      return;
+    }
 
+    const boardCopy = [...board];
+    boardCopy[row][col].flagged = !flagged;
     setBoard(boardCopy);
+    onMove();
+    dispatchFlagAction(flagged ? 'decrement' : 'increment');
   };
 
   const shakeField = () => {

@@ -15,15 +15,18 @@ export default function useTimer({ interval = 1000 }: TimerOptions = {}): TimerR
   useEffect(() => stop, []);
 
   const start = () => {
+    const alreadyStarted = !!timeoutRef.current;
+    if (alreadyStarted) return;
+
     let expected = Date.now() + interval;
 
-    setTimeout(step, interval);
+    timeoutRef.current = setTimeout(step, interval);
 
     function step() {
       const drift = Date.now() - expected;
 
       expected += interval;
-      setSeconds(prevValue => prevValue + interval / 1000);
+      setSeconds(prevValue => prevValue + interval);
 
       const adjustedInterval = interval - drift;
       timeoutRef.current = setTimeout(step, Math.max(0, adjustedInterval));
@@ -32,7 +35,8 @@ export default function useTimer({ interval = 1000 }: TimerOptions = {}): TimerR
 
   const stop = () => {
     if (!timeoutRef.current) return;
-    clearInterval(timeoutRef.current);
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = null;
   };
 
   return [seconds, { start, stop }];

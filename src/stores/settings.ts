@@ -9,7 +9,7 @@ export type SettingsState = {
   isOpen: boolean;
   options: {
     theme: Theme;
-    perspectiveMode: boolean;
+    parallaxMode: boolean;
   };
   openSettings(): void;
   closeSettings(): void;
@@ -20,7 +20,7 @@ export const useSettings = create<SettingsState>(set => ({
   isOpen: false,
   options: {
     theme: Theme.Dark,
-    perspectiveMode: true,
+    parallaxMode: true,
   },
   openSettings() {
     set({ isOpen: true });

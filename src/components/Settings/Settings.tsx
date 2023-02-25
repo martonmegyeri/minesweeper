@@ -30,10 +30,10 @@ export default function Settings() {
       showToast(`Dark mode ${on ? 'on' : 'off'}`, type);
     }
 
-    if (prevOptions?.perspectiveMode !== options.perspectiveMode) {
-      const on = options.perspectiveMode;
+    if (prevOptions?.parallaxMode !== options.parallaxMode) {
+      const on = options.parallaxMode;
       const type = on ? ToastType.Success : ToastType.Info;
-      showToast(`3D Perspective Effect ${on ? 'on' : 'off'}`, type);
+      showToast(`Parallax Effect ${on ? 'on' : 'off'}`, type);
     }
   }, [options]);
 
@@ -48,8 +48,8 @@ export default function Settings() {
           />
         </div>
         <div className={styles.row}>
-          3D Perspective Effect
-          <Toggle on={options.perspectiveMode} onToggle={on => setOption('perspectiveMode', on)} />
+          Parallax Effect
+          <Toggle on={options.parallaxMode} onToggle={on => setOption('parallaxMode', on)} />
         </div>
       </div>
     </Modal>

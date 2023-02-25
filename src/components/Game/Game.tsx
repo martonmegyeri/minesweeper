@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { shallow } from 'zustand/shallow';
 import back from '../../assets/images/arrow-back.svg';
 import restart from '../../assets/images/restart.svg';
+import { LEVELS } from '../../config/levels';
 import { Screen, useApp } from '../../stores/app';
 import { Status, useGame } from '../../stores/game';
 import useTimer from '../../utils/use-timer';
@@ -11,13 +12,19 @@ import Board from './Board/Board';
 import CompletedModal from './CompletedModal/CompletedModal';
 import Confetties from './Confetties/Confetties';
 import styles from './Game.module.scss';
-import Timer from './Timer/Timer';
+import Header from './Header/Header';
 
 export default function Game() {
-  const [timerSeconds, timerActions] = useTimer();
+  const [elapsedTime, timerActions] = useTimer();
   const goToScreen = useApp(state => state.goToScreen);
-  const [status, setStatus] = useGame(state => [state.status, state.setStatus], shallow);
+  const [status, setStatus, selectedLevel] = useGame(
+    state => [state.status, state.setStatus, state.selectedLevel],
+    shallow
+  );
+  const levelDetails = LEVELS[selectedLevel];
   const [isCompletedModalOpen, setIsCompletedModalOpen] = useState(false);
+  const [moves, incrementMoves] = useReducer((prevValue: number) => prevValue + 1, 0);
+  const [remainingFlags, setRemainingFlags] = useState(levelDetails.mines);
 
   useEffect(() => {
     if (status === Status.Win || status === Status.GameOver) {
@@ -51,11 +58,22 @@ export default function Game() {
     >
       {status === Status.Win && <Confetties />}
       <div className={styles.content}>
-        <Timer time={timerSeconds} />
-        {/* TODO: Bombs - Moves - Time */}
-        <Board onStartTimer={timerActions.start} onStopTimer={timerActions.stop} />
+        <div>
+          <Header elapsedTime={elapsedTime} moves={moves} remainingFlags={remainingFlags} />
+          <Board
+            onStartTimer={timerActions.start}
+            onStopTimer={timerActions.stop}
+            onMove={incrementMoves}
+            onPlaceFlag={placedFlags => setRemainingFlags(levelDetails.mines - placedFlags)}
+          />
+        </div>
       </div>
-      <CompletedModal isOpen={isCompletedModalOpen} />
+      <CompletedModal
+        isOpen={isCompletedModalOpen}
+        elapsedTime={elapsedTime}
+        moves={moves}
+        onClose={() => setIsCompletedModalOpen(false)}
+      />
     </Page>
   );
 }

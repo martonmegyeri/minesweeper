@@ -88,6 +88,13 @@
         }
       }
     }
+
+    .glowEffect {
+      position: absolute;
+      z-index: -1;
+      bottom: calc(var(--glow-effect-width) / 1.7 * -1);
+      left: calc(50% - (var(--glow-effect-width) / 2));
+    }
   }
 
   .details {

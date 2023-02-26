@@ -8,6 +8,7 @@ import Button from '../../Button';
 import Modal from '../../Modal';
 import ParallaxLayerContainer from '../../ParallaxLayerContainer';
 import styles from './CompletedModal.module.scss';
+import GlowEffect from './GlowEffect/GlowEffect';
 
 type Props = {
   isOpen: boolean;
@@ -19,11 +20,11 @@ type Props = {
 export default function CompletedModal({ isOpen, elapsedTime, moves, onClose }: Props) {
   const goToScreen = useApp(state => state.goToScreen);
   const [status, setStatus] = useGame(state => [state.status, state.setStatus], shallow);
-  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [modalStatus, setModalStatus] = useState<Status | null>(null);
 
   useEffect(() => {
     if (status === Status.Win || status === Status.GameOver) {
-      setStatusMessage(getStatusMessage(status));
+      setModalStatus(status);
     }
   }, [status]);
 
@@ -40,11 +41,12 @@ export default function CompletedModal({ isOpen, elapsedTime, moves, onClose }: 
   return (
     <Modal className={styles.completedModal} contentClassName={styles.modalBody} isOpen={isOpen} onClose={onClose}>
       <header className={styles.header}>
+        {modalStatus === Status.Win && <GlowEffect className={styles.glowEffect} />}
         <ParallaxLayerContainer strengthFactor={300}>
           <div className={styles.ribbon}>
             <div className={classNames(styles.leftPart, styles.shadow)} />
             <div className={styles.leftPart} />
-            <div className={styles.centerPart}>{statusMessage}</div>
+            <div className={styles.centerPart}>{getStatusMessage(modalStatus)}</div>
             <div className={classNames(styles.rightPart, styles.shadow)} />
             <div className={styles.rightPart} />
           </div>
@@ -78,7 +80,7 @@ function Detail({ title, children }: DetailProps) {
   );
 }
 
-function getStatusMessage(status: Status) {
+function getStatusMessage(status: Status | null) {
   switch (status) {
     case Status.Win:
       return 'You Win!';

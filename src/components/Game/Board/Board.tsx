@@ -2,7 +2,7 @@ import { motion, useAnimationControls } from 'framer-motion';
 import { useEffect, useReducer, useState } from 'react';
 import { LEVELS } from '../../../config/levels';
 import { Status, useGame } from '../../../stores/game';
-import getRandom from '../../../utils/get-random';
+import { getRandom } from '../../../utils/get-random';
 import styles from './Board.module.scss';
 import Field from './Field/Field';
 

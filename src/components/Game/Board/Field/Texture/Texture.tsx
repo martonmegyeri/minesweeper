@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
-import getRandom from '../../../../../utils/get-random';
+import { getRandom } from '../../../../../utils/get-random';
 import styles from './Texture.module.scss';
 
 export default function Texture() {

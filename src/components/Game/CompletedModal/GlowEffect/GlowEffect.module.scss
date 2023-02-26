@@ -1,0 +1,125 @@
+.glowEffect {
+  --glow-effect-width: 600px;
+  --glow-effect-color: hsl(40, 100%, 61%);
+
+  width: var(--glow-effect-width);
+  aspect-ratio: 1;
+
+  .light {
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: -5%;
+    right: -5%;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      var(--glow-effect-color) 20%,
+      hsla(40, 100%, 61%, 80%),
+      hsla(40, 100%, 61%, 50%),
+      hsla(40, 100%, 61%, 25%),
+      hsla(40, 100%, 61%, 8%),
+      transparent 66.66%
+    );
+    animation-name: scale;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+    @keyframes scale {
+      50% {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .sunburst {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--glow-effect-color) 0deg 20deg,
+      transparent 20deg 30deg,
+      var(--glow-effect-color) 30deg 50deg,
+      transparent 50deg 60deg,
+      var(--glow-effect-color) 60deg 80deg,
+      transparent 80deg 90deg,
+      var(--glow-effect-color) 90deg 110deg,
+      transparent 110deg 120deg,
+      var(--glow-effect-color) 120deg 140deg,
+      transparent 140deg 150deg,
+      var(--glow-effect-color) 150deg 170deg,
+      transparent 170deg 180deg,
+      var(--glow-effect-color) 180deg 200deg,
+      transparent 200deg 210deg,
+      var(--glow-effect-color) 210deg 230deg,
+      transparent 230deg 240deg,
+      var(--glow-effect-color) 240deg 260deg,
+      transparent 260deg 270deg,
+      var(--glow-effect-color) 270deg 290deg,
+      transparent 290deg 300deg,
+      var(--glow-effect-color) 300deg 320deg,
+      transparent 320deg 330deg,
+      var(--glow-effect-color) 330deg 350deg,
+      transparent 350deg 360deg
+    );
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black, transparent 66.66%);
+    mask-image: radial-gradient(ellipse at 50% 50%, black, transparent 66.66%);
+    animation: rotate 50s linear infinite;
+    filter: blur(1px);
+    opacity: 0.5;
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 63%;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 50%, transparent);
+    mask-image: radial-gradient(ellipse at 50% 50%, black, transparent);
+
+    > div {
+      position: absolute;
+      background-color: rgb(255, 232, 201);
+      border-radius: 50%;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+      // create 4 dirrenet animations
+      @for $i from 1 through 6 {
+        $position-x: random(30) - 15px;
+        $position-y: random(30) - 15px;
+
+        @keyframes :global(dot-animation-#{$i}) {
+          0% {
+            opacity: 0;
+            transform: scale(0.3) translate3d(0, 0, 0);
+            box-shadow: 0 0 5px hsla(0, 0%, 100%, 35%);
+          }
+          50% {
+            opacity: 0.5;
+            transform: scale(1) translate3d($position-x * 0.5, $position-y * 0.5, 0);
+            box-shadow: 0 0 5px 1px hsla(0, 0%, 100%, 35%);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(0.3) translate3d($position-x, $position-y, 0);
+            box-shadow: 0 0 5px hsla(0, 0%, 100%, 35%);
+          }
+        }
+      }
+    }
+  }
+}

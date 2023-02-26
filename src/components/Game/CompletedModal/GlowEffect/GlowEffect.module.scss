@@ -4,6 +4,7 @@
 
   width: var(--glow-effect-width);
   aspect-ratio: 1;
+  pointer-events: none;
 
   .light {
     position: absolute;
@@ -64,11 +65,9 @@
       var(--glow-effect-color) 330deg 350deg,
       transparent 350deg 360deg
     );
-    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black, transparent 66.66%);
-    mask-image: radial-gradient(ellipse at 50% 50%, black, transparent 66.66%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black, hsla(0, 0%, 0%, 12%) 50%, transparent 66.66%);
     animation: rotate 50s linear infinite;
     filter: blur(1px);
-    opacity: 0.5;
 
     @keyframes rotate {
       0% {
@@ -82,12 +81,11 @@
 
   .dots {
     position: absolute;
-    top: 15%;
-    left: 15%;
-    right: 15%;
-    bottom: 63%;
+    top: 18%;
+    left: 18%;
+    right: 18%;
+    bottom: 65%;
     -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 50%, transparent);
-    mask-image: radial-gradient(ellipse at 50% 50%, black, transparent);
 
     > div {
       position: absolute;
@@ -106,17 +104,14 @@
           0% {
             opacity: 0;
             transform: scale(0.3) translate3d(0, 0, 0);
-            box-shadow: 0 0 5px hsla(0, 0%, 100%, 35%);
           }
           50% {
-            opacity: 0.5;
+            opacity: 0.6;
             transform: scale(1) translate3d($position-x * 0.5, $position-y * 0.5, 0);
-            box-shadow: 0 0 5px 1px hsla(0, 0%, 100%, 35%);
           }
           100% {
             opacity: 0;
             transform: scale(0.3) translate3d($position-x, $position-y, 0);
-            box-shadow: 0 0 5px hsla(0, 0%, 100%, 35%);
           }
         }
       }

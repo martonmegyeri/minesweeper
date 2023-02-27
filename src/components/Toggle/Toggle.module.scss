@@ -1,12 +1,26 @@
 .toggle {
-  --point-diameter: 20px;
-  --background-color: var(--color-neutral-500);
+  --point-width: 45px;
+  --point-height: 30px;
+  --point-padding: 2px;
+  --point-bottom-shadow-height: 2px;
+  --point-background-color: var(--color-red-light);
+  --point-shadow-color: var(--color-red);
+  --visual-background-color: var(--color-brown);
 
   position: relative;
   display: inline-block;
 
+  &:not(:disabled):hover {
+    .visual .dot::before {
+      box-shadow: inset 0 6px 10px hsla(0, 0%, 100%, 40%);
+    }
+  }
+
   &.on {
-    --background-color: var(--color-green);
+    .visual .dot {
+      --point-background-color: var(--color-green-light);
+      --point-shadow-color: var(--color-green);
+    }
   }
 
   input {
@@ -24,13 +38,14 @@
   .visual {
     position: relative;
     display: block;
-    width: calc(var(--point-diameter) + 4px + 20px);
-    height: calc(var(--point-diameter) + 4px);
-    background-color: var(--background-color);
-    border-radius: calc((var(--point-diameter) + 4px) / 2);
+    width: calc((var(--point-width) + var(--point-padding) * 2) + var(--point-transform-x));
+    height: calc(var(--point-height) + var(--point-padding) * 2);
+    background-color: var(--visual-background-color);
+    border-radius: calc((var(--point-height) + 4px) / 2);
     cursor: pointer;
     pointer-events: none;
     transition: var(--transition-primary);
+    box-shadow: inset 0 0 2px 2px hsla(0, 0%, 0%, 10%);
 
     .dot {
       content: "";
@@ -38,12 +53,37 @@
       z-index: 1;
       top: 2px;
       left: 2px;
-      display: block;
-      width: var(--point-diameter);
-      height: var(--point-diameter);
-      background-color: var(--color-white);
-      border-radius: 50%;
-      box-shadow: hsla(0, 0%, 0%, 25%) 0 1px 2px, hsla(0, 0%, 0%, 20%) 1px 2px 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--point-width);
+      height: calc(var(--point-height) - var(--point-bottom-shadow-height));
+      background-color: var(--point-background-color);
+      box-shadow: 0 var(--point-bottom-shadow-height) 0 var(--point-shadow-color);
+      border-radius: var(--point-height);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-shadow: 0 1px var(--point-shadow-color);
+      color: var(--color-white);
+      transition: background-color 250ms var(--transition-timing), box-shadow 250ms var(--transition-timing);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--point-height);
+        box-shadow: inset 0 6px 10px hsla(0, 0%, 100%, 30%);
+        transition: box-shadow var(--transition-ultra);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--point-height);
+        box-shadow: inset 0 -6px 10px hsla(0, 0%, 0%, 10%);
+      }
     }
   }
 }

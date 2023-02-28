@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Screen, useApp } from '../../stores/app';
+import { Screen, useApp } from '~/stores/app';
 import Page from '../Page';
 
 export default function ResetScreen() {

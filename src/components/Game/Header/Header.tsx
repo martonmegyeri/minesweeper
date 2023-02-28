@@ -1,7 +1,7 @@
-import clock from '../../../assets/images/clock.svg';
-import flag from '../../../assets/images/flag.svg';
-import pointer from '../../../assets/images/mouse-pointer.svg';
-import formatTime from '../../../utils/format-time';
+import clock from '~/assets/images/clock.svg';
+import flag from '~/assets/images/flag.svg';
+import pointer from '~/assets/images/mouse-pointer.svg';
+import formatTime from '~/utils/format-time';
 import styles from './Header.module.scss';
 
 type Props = {

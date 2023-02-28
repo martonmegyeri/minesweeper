@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
-import { Theme, useSettings } from '../../stores/settings';
-import usePrevious from '../../utils/use-previous';
+import { Theme, useSettings } from '~/stores/settings';
+import usePrevious from '~/utils/use-previous';
 import Modal from '../Modal/Modal';
 import Toggle from '../Toggle/Toggle';
 import styles from './Settings.module.scss';

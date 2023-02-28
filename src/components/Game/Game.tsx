@@ -1,11 +1,11 @@
 import { useEffect, useReducer, useState } from 'react';
 import { shallow } from 'zustand/shallow';
-import back from '../../assets/images/arrow-back.svg';
-import restart from '../../assets/images/restart.svg';
-import { LEVELS } from '../../config/levels';
-import { Screen, useApp } from '../../stores/app';
-import { Status, useGame } from '../../stores/game';
-import useTimer from '../../utils/use-timer';
+import back from '~/assets/images/arrow-back.svg';
+import restart from '~/assets/images/restart.svg';
+import { LEVELS } from '~/config/levels';
+import { Screen, useApp } from '~/stores/app';
+import { Status, useGame } from '~/stores/game';
+import useTimer from '~/utils/use-timer';
 import IconButton from '../IconButton';
 import Page from '../Page';
 import Board from './Board/Board';

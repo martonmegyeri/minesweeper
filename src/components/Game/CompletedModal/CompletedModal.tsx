@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { shallow } from 'zustand/shallow';
-import { Screen, useApp } from '../../../stores/app';
-import { Status, useGame } from '../../../stores/game';
-import formatTime from '../../../utils/format-time';
+import { Screen, useApp } from '~/stores/app';
+import { Status, useGame } from '~/stores/game';
+import formatTime from '~/utils/format-time';
 import Button from '../../Button';
 import Modal from '../../Modal';
 import ParallaxLayerContainer from '../../ParallaxLayerContainer';

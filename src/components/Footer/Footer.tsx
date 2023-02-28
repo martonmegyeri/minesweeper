@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
-import settings from '../../assets/images/settings.svg';
-import { useSettings } from '../../stores/settings';
+import settings from '~/assets/images/settings.svg';
+import { useSettings } from '~/stores/settings';
 import IconButton from '../IconButton';
 import styles from './Footer.module.scss';
 

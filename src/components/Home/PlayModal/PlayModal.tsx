@@ -1,6 +1,6 @@
-import { Level } from '../../../config/levels';
-import { Screen, useApp } from '../../../stores/app';
-import { useGame } from '../../../stores/game';
+import { Level } from '~/config/levels';
+import { Screen, useApp } from '~/stores/app';
+import { useGame } from '~/stores/game';
 import Button from '../../Button';
 import Modal from '../../Modal';
 import styles from './PlayModal.module.scss';

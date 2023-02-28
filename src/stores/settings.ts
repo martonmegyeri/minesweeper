@@ -8,6 +8,7 @@ export enum Theme {
 export type SettingsState = {
   isOpen: boolean;
   options: {
+    sounds: boolean;
     theme: Theme;
     parallaxMode: boolean;
   };
@@ -19,6 +20,7 @@ export type SettingsState = {
 export const useSettings = create<SettingsState>(set => ({
   isOpen: false,
   options: {
+    sounds: true,
     theme: Theme.Dark,
     parallaxMode: true,
   },

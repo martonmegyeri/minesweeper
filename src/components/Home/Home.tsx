@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import bomb from '../../assets/images/bomb.png';
+import bomb from '~/assets/images/bomb.png';
 import Button from '../Button';
 import Page from '../Page';
 import styles from './Home.module.scss';

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { getRandom, getRandomFloat } from '../../../../utils/get-random';
+import { getRandom, getRandomFloat } from '~/utils/get-random';
 import styles from './GlowEffect.module.scss';
 
 type Props = {

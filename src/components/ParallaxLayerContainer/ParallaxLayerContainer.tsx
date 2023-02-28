@@ -1,7 +1,7 @@
 import { motion, useSpring } from 'framer-motion';
 import { ReactElement, useEffect, useRef } from 'react';
 
-import { useSettings } from '../../stores/settings';
+import { useSettings } from '~/stores/settings';
 
 type Props = {
   strengthFactor?: number;

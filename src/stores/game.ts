@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Level } from '../config/levels';
+import { Level } from '~/config/levels';
 
 export enum Status {
   Win,

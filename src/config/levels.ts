@@ -4,7 +4,13 @@ export enum Level {
   Hard,
 }
 
-export const LEVELS = {
+export type LevelDetails = {
+  width: number;
+  height: number;
+  mines: number;
+};
+
+export const LEVELS: Record<Level, LevelDetails> = {
   [Level.Easy]: {
     width: 8,
     height: 8,

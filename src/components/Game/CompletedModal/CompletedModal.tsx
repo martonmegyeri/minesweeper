@@ -42,7 +42,7 @@ export default function CompletedModal({ isOpen, elapsedTime, moves, onClose }: 
     <Modal className={styles.completedModal} contentClassName={styles.modalBody} isOpen={isOpen} onClose={onClose}>
       <header className={styles.header}>
         {modalStatus === Status.Win && <GlowEffect className={styles.glowEffect} />}
-        <ParallaxLayerContainer strengthFactor={300}>
+        <ParallaxLayerContainer strengthFactor={500}>
           <div className={styles.ribbon}>
             <div className={classNames(styles.leftPart, styles.shadow)} />
             <div className={styles.leftPart} />

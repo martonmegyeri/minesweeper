@@ -8,7 +8,7 @@ type Props = {
   children: ReactElement;
 };
 
-export default function ParallaxLayerContainer({ strengthFactor = 50, children }: Props) {
+export default function ParallaxLayerContainer({ strengthFactor = 100, children }: Props) {
   const options = useSettings(state => state.options);
   const lastAnimationCallRef = useRef<number | null>(null);
   const springOptions = { stiffness: 100, damping: 10 };

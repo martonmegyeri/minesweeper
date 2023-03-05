@@ -37,6 +37,8 @@ export default function Board({ onStartTimer, onStopTimer, onMove, onPlaceFlag }
     }
   }, 0);
 
+  console.log(placedFlags);
+
   useEffect(() => {
     const filledBoard = getFilledBoard(selectedLevel);
     setBoard(filledBoard);
@@ -50,7 +52,7 @@ export default function Board({ onStartTimer, onStopTimer, onMove, onPlaceFlag }
     const boardCopy = [...board];
     boardCopy[row][col].flagged = flagged;
     setBoard(boardCopy);
-    dispatchFlagAction(flagged ? 'decrement' : 'increment');
+    dispatchFlagAction(flagged ? 'increment' : 'decrement');
   };
 
   const revealField = (row: number, col: number) => {

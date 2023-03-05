@@ -20,9 +20,8 @@ export default function PageTransition({ children, ...rest }: Props) {
       <motion.div
         className={styles.mask}
         initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        exit={{ opacity: 1 }}
-        transition={{ type: 'tween', ease: 'easeInOut', duration: 0.8 }}
+        animate={{ opacity: 0, transition: { delay: 0, duration: 0.6 } }}
+        exit={{ opacity: 1, transition: { delay: 0.4, duration: 0.4 } }}
       />
       {children}
     </div>

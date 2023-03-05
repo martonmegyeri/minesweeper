@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@fontsource/lily-script-one": "^4.5.11",
-    "@fontsource/modak": "^4.5.11",
     "@fontsource/nunito": "^4.5.12",
     "classnames": "^2.3.2",
     "framer-motion": "^8.5.5",

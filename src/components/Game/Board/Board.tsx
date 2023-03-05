@@ -37,8 +37,6 @@ export default function Board({ onStartTimer, onStopTimer, onMove, onPlaceFlag }
     }
   }, 0);
 
-  console.log(placedFlags);
-
   useEffect(() => {
     const filledBoard = getFilledBoard(selectedLevel);
     setBoard(filledBoard);

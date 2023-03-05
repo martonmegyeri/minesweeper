@@ -20,7 +20,7 @@ export default function useTimer({ interval = 1000 }: TimerOptions = {}): TimerR
 
     let expected = Date.now() + interval;
 
-    timeoutRef.current = setTimeout(step, interval);
+    timeoutRef.current = window.setTimeout(step, interval);
 
     function step() {
       const drift = Date.now() - expected;
@@ -29,7 +29,7 @@ export default function useTimer({ interval = 1000 }: TimerOptions = {}): TimerR
       setSeconds(prevValue => prevValue + interval);
 
       const adjustedInterval = interval - drift;
-      timeoutRef.current = setTimeout(step, Math.max(0, adjustedInterval));
+      timeoutRef.current = window.setTimeout(step, Math.max(0, adjustedInterval));
     }
   };
 

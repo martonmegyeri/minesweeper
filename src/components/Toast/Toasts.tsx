@@ -40,8 +40,8 @@ export default function Toasts() {
   }, [toast.message]);
 
   const startTimeout = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => toast.hide(), 3000);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => toast.hide(), 3000);
   };
 
   return <Toast isVisible={toast.isVisible} message={toast.message} type={toast.type} />;

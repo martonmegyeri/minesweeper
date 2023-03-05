@@ -1,0 +1,60 @@
+@use "../../../../styles/mixins.scss";
+
+.field {
+  --border-radius: 10px;
+
+  @include mixins.reset-button;
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  border-radius: var(--border-radius);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--bottom-border-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--btn-color-dark);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px var(--btn-color-shadow);
+    transition: 100ms ease-out;
+  }
+
+  &:not(.revealed) {
+    --btn-color: var(--color-green-light);
+    --btn-color-dark: var(--color-green);
+    --btn-color-shadow: var(--color-green-dark);
+
+    cursor: pointer;
+  }
+
+  &.revealed {
+    --btn-color: var(--color-brown-light);
+    --btn-color-dark: var(--color-brown);
+    --btn-color-shadow: var(--color-brown-dark);
+  }
+
+  &.revealed.mine {
+    --btn-color: var(--color-red);
+    --btn-color-dark: var(--color-red-dark);
+    --btn-color-shadow: var(--color-red-darker);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - var(--bottom-border-height));
+    margin-top: var(--bottom-border-height);
+    border-radius: var(--border-radius);
+    background-color: var(--btn-color);
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 5%), inset 0 3px 10px hsla(0, 0%, 100%, 40%);
+    transition: 75ms ease-out;
+  }
+}

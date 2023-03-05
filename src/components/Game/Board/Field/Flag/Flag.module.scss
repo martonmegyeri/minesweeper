@@ -1,0 +1,46 @@
+.flagContainer {
+  --flag-base-width: 45%;
+  --flag-bar-width: 10%;
+  --flag-bar-height: 65%;
+  --flag-width: 25%;
+
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
+  .base {
+    --flag-base-position: calc((100% - var(--flag-base-width)) / 2);
+
+    position: absolute;
+    top: var(--flag-base-position);
+    left: var(--flag-base-position);
+    width: var(--flag-base-width);
+    aspect-ratio: 1.2;
+    border-radius: 50%;
+    background-color: var(--color-red-light);
+    box-shadow: 0 2px 0 var(--color-red-dark);
+  }
+
+  .bar {
+    --flag-bar-position: calc((100% - var(--flag-bar-width)) / 2);
+
+    position: absolute;
+    bottom: 47%;
+    left: var(--flag-bar-position);
+    width: var(--flag-bar-width);
+    height: var(--flag-bar-height);
+    border-radius: 10px;
+    background: linear-gradient(0deg, var(--color-neutral-500), var(--color-white) 40%);
+    transform-origin: 50% 100%;
+  }
+
+  .flag {
+    position: absolute;
+    top: -6%;
+    left: calc(50% + (var(--flag-bar-width) / 2));
+    width: var(--flag-width);
+    height: calc(var(--flag-base-width) * 0.6);
+    background: linear-gradient(90deg, var(--color-red), var(--color-red-light));
+    transform-origin: 0% 50%;
+  }
+}

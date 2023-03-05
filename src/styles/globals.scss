@@ -1,0 +1,74 @@
+@import "./defaults.scss";
+
+/**
+ * Variables
+ */
+:root {
+  --color-white: hsl(0, 0%, 100%);
+  --color-neutral-100: hsl(0, 9%, 96%);
+  --color-neutral-200: hsl(0, 6%, 93%);
+  --color-neutral-300: hsl(0, 5%, 87%);
+  --color-neutral-400: hsl(0, 1%, 83%);
+  --color-neutral-500: hsl(0, 3%, 74%);
+  --color-neutral-600: hsl(0, 0%, 45%); // Lightest color that meets the text contrast ratio requirmenets
+  --color-neutral-700: hsl(0, 6%, 30%);
+  --color-neutral-800: hsl(0, 6%, 15%);
+  --color-neutral-900: hsl(0, 0%, 7%);
+  --color-black: hsl(0, 0%, 0%);
+
+  --color-purple: hsl(255, 86%, 57%);
+  --color-blue: hsl(224, 63%, 59%);
+  --color-blue-dark: hsl(227, 64%, 41%);
+  --color-green-light: hsl(110, 40%, 56%);
+  --color-green: hsl(115, 40%, 42%);
+  --color-green-dark: hsl(120, 50%, 32%);
+  --color-red-light: hsl(5, 100%, 67%);
+  --color-red: hsl(0, 81%, 55%);
+  --color-red-dark: hsl(0, 60%, 35%);
+  --color-red-darker: hsl(0, 40%, 25%);
+  --color-orange-light: hsl(28, 85%, 66%);
+  --color-orange: hsl(22, 80%, 57%);
+  --color-orange-dark: hsl(17, 60%, 51%);
+  --color-brown-lightest: hsl(20, 89%, 93%);
+  --color-brown-lighter: hsl(20, 92%, 90%);
+  --color-brown-light: hsl(15, 80%, 84%);
+  --color-brown: hsl(16, 46%, 66%);
+  --color-brown-dark: hsl(16, 30%, 40%);
+  --color-brown-darker: hsl(16, 30%, 26%);
+
+  // Fonts
+  --font-family-primary: "NunitoVariable", arial, helvetica, sans-serif;
+  --font-family-secondary: "Lily Script One", arial, helvetica, sans-serif;
+
+  // Positioning
+  --z-index-base: 0;
+  --z-index-above: 10;
+  --z-index-below: -10;
+
+  // Transitions
+  --transition-timing: cubic-bezier(0.5, 0, 0.1, 1);
+
+  --transition-ultra: 0.1s var(--transition-timing);
+  --transition-fast: 0.3s var(--transition-timing);
+  --transition-primary: 0.55s var(--transition-timing);
+  --transition-smooth: 0.7s var(--transition-timing);
+  --transition-slow: 0.9s var(--transition-timing);
+}
+
+// Themes
+body[data-theme="dark"] {
+  --color-primary: var(--color-orange);
+  --color-accent: var(--color-purple);
+  --color-text: var(--color-white);
+  --color-background: #262459;
+  --color-background-gradient: linear-gradient(150deg, var(--color-background), #090620);
+  --icon-filter: invert(1);
+}
+body[data-theme="light"] {
+  --color-primary: var(--color-orange);
+  --color-accent: var(--color-purple);
+  --color-text: var(--color-neutral-900);
+  --color-background: #edeaff;
+  --color-background-gradient: linear-gradient(150deg, var(--color-background), #ffffff);
+  --icon-filter: invert(0);
+}

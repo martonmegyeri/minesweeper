@@ -1,0 +1,19 @@
+@mixin reset-button {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

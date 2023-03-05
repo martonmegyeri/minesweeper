@@ -15,9 +15,14 @@
       position: absolute;
       top: -20%;
       right: -26%;
-      width: 250px;
-      height: 250px;
+      width: 187px;
+      height: 187px;
       transform: rotate(14deg);
+
+      @media (min-width: 576px) {
+        width: 250px;
+        height: 250px;
+      }
     }
 
     .title {
@@ -26,13 +31,17 @@
       color: var(--color-brown-lightest);
       font-family: var(--font-family-secondary);
       font-weight: 600;
-      font-size: 80px;
+      font-size: 60px;
       line-height: 0.8;
       text-shadow: 0.01em 0.01em 0.005em var(--color-brown), 0.02em 0.02em 0.005em var(--color-brown),
         0.03em 0.03em 0.005em var(--color-brown), 0.04em 0.04em 0.005em var(--color-brown),
         0.05em 0.05em 0.005em var(--color-brown), 0.06em 0.06em 0.005em var(--color-brown-dark),
         0.07em 0.07em 0.005em var(--color-brown-dark), 0.08em 0.08em 0.005em var(--color-brown-dark),
         0.09em 0.09em 0.005em var(--color-brown-dark), 0.1em 0.1em 0.005em var(--color-brown-dark);
+
+      @media (min-width: 576px) {
+        font-size: 80px;
+      }
     }
   }
 

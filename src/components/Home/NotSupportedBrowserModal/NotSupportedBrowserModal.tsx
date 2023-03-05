@@ -12,7 +12,7 @@ export default function NotSupportedBrowserModal() {
 
   return (
     <Modal className={styles.notSupportedBrowserModal} contentClassName={styles.modalBody} isOpen={isSmallScreen}>
-      <img src={info} alt="Info" className={styles.icon} width={80} />
+      <img src={info} alt="Info" className={styles.icon} width={80} height={80} />
       <h1>Not supported browser.</h1>
       <p>For the best experience, please use a browser with at least 900px horizontal&nbsp;width.</p>
     </Modal>

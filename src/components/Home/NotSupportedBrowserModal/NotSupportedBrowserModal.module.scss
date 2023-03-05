@@ -1,0 +1,28 @@
+@use "../../../styles/mixins.scss";
+
+.notSupportedBrowserModal {
+  .modalBody {
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .icon {
+    filter: invert(75%) sepia(7%) saturate(1500%) hue-rotate(335deg) brightness(95%) contrast(90%);
+    opacity: 0.5;
+  }
+
+  h1 {
+    line-height: 1.2;
+    font-weight: 900;
+    color: var(--color-brown);
+  }
+
+  p {
+    color: var(--color-brown-dark);
+    font-weight: 600;
+  }
+}

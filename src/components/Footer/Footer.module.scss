@@ -1,11 +1,21 @@
 .footer {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
+  justify-items: center;
+  gap: 12px;
   padding: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr auto 1fr;
+  }
 
   .center {
     text-align: center;
+
+    @media (max-width: 767.98px) {
+      order: 3;
+    }
 
     a,
     span {
@@ -24,9 +34,12 @@
   }
 
   .actions {
-    justify-self: end;
     display: flex;
     gap: 10px;
+
+    @media (min-width: 768px) {
+      justify-self: end;
+    }
 
     .action {
       .content {

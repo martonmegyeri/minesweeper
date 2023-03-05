@@ -4,6 +4,7 @@ import bomb from '~/assets/images/bomb.png';
 import Button from '../Button';
 import Page from '../Page';
 import styles from './Home.module.scss';
+import NotSupportedBrowserModal from './NotSupportedBrowserModal/NotSupportedBrowserModal';
 import PlayModal from './PlayModal/PlayModal';
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
         </Button>
       </ul>
       <PlayModal isOpen={modalState === 'play'} onClose={() => setModalState(null)} />
+      <NotSupportedBrowserModal />
     </Page>
   );
 }

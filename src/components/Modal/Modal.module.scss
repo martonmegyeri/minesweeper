@@ -1,7 +1,8 @@
 @use "../../styles/mixins.scss";
 
 .modal {
-  --modal-min-width: 500px;
+  --modal-width: 500px;
+  --modal-min-height: 350px;
   --modal-border-width: 9px;
   --modal-header-height: 48px;
   --modal-border-radius: 50px;
@@ -29,12 +30,18 @@
     position: relative;
     z-index: 1;
     display: flex;
-    min-width: var(--modal-min-width);
-    min-height: 350px;
+    width: 90vw;
+    min-width: 90vw;
+    min-height: var(--modal-min-height);
     height: auto;
     border-radius: var(--modal-border-radius);
     background-color: var(--color-brown);
     box-shadow: inset 0 -4px 6px hsla(13, 60%, 30%, 40%), 0 20px 50px hsla(0, 0%, 0%, 20%);
+
+    @media (min-width: 550px) {
+      width: var(--modal-width);
+      min-width: var(--modal-width);
+    }
 
     .content {
       flex-grow: 1;

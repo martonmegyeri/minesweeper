@@ -20,7 +20,7 @@ export default function Home() {
       <motion.div
         animate={{ opacity: isFontReady ? 1 : 0, scale: isFontReady ? 1 : 0.5 }}
         initial={false}
-        transition={{ type: 'spring' }}
+        transition={{ type: 'spring', delay: 0.25 }}
         className={styles.logo}
       >
         <img src={bomb} alt="bomb" className={styles.bomb} />

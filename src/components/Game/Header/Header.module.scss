@@ -24,7 +24,7 @@
     }
 
     .icon {
-      filter: invert(1);
+      filter: var(--icon-filter);
       width: 20px;
       height: 20px;
       margin-bottom: 2px;

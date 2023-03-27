@@ -16,7 +16,7 @@ export default function Footer({ actionElements }: Props) {
       <div />
       <div className={styles.center}>
         <span>Created by </span>
-        <a href="https://github.com/megyerimarton" target="_blank" rel="noopener noreferrer">
+        <a href="https://martonmegyeri.com" target="_blank" rel="noopener noreferrer">
           Marton Megyeri
         </a>
       </div>

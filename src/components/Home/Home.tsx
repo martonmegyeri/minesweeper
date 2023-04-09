@@ -18,9 +18,9 @@ export default function Home() {
   return (
     <Page className={styles.home}>
       <motion.div
-        animate={{ opacity: isFontReady ? 1 : 0, scale: isFontReady ? 1 : 0.5 }}
+        animate={{ opacity: isFontReady ? 1 : 0, scale: isFontReady ? 1 : 0.6 }}
         initial={false}
-        transition={{ type: 'spring', delay: 0.25 }}
+        transition={{ type: 'spring', delay: 0.35 }}
         className={styles.logo}
       >
         <img src={bomb} alt="bomb" className={styles.bomb} />
